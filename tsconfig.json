@@ -4,9 +4,12 @@
 		"strict": true,
 		"target": "ES2020",
 		"module": "CommonJS",
-		"inlineSourceMap": true,
+		"sourceMap": true,
 		"removeComments": false,
 		"outDir": "dist",
+		"declaration": true,
+		"declarationDir": "types",
+		"declarationMap": true,
 		"noUnusedLocals": true,
 		"noImplicitOverride": true,
 		"forceConsistentCasingInFileNames": true
