@@ -8,7 +8,7 @@
 		"build-js": "tsc",
 		"build-types": "tsc --declaration --emitDeclarationOnly --outFile dist/index",
 		"build": "npm run build-js && npm run build-types",
-		"test": "jest"
+		"test": "tsc --noEmit"
 	},
 	"repository": {
 		"type": "git",
