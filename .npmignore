@@ -1,0 +1,10 @@
+# Source
+src/
+tsconfig.json
+changelog-template.hbs
+
+# Miscellaneous
+.vscode/*
+
+# Logs
+*.log
