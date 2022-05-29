@@ -1,0 +1,33 @@
+{
+	"name": "@ifunny/ifunny-api-types",
+	"version": "0.1.0",
+	"description": "iFunny API typings for use in bot library creaion.",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"scripts": {
+		"build-js": "tsc",
+		"build-types": "tsc --declaration --emitDeclarationOnly --outFile dist/index",
+		"build": "npm run build-js && npm run build-types",
+		"test": "jest"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/ifunny-co/ifunny-api-types.git"
+	},
+	"keywords": [
+		"ifunny",
+		"types",
+		"typescript"
+	],
+	"author": "MakeShiftArtist <makeshiftdevelopment@gmail.com> (https://github.com/makeshiftartist)",
+	"license": "CC0-1.0",
+	"bugs": {
+		"url": "https://github.com/ifunny-co/ifunny-api-types/issues"
+	},
+	"homepage": "https://github.com/ifunny-co/ifunny-api-types#readme",
+	"devDependencies": {
+		"@types/node": "^17.0.36",
+		"auto-changelog": "^2.4.0",
+		"typescript": "^4.7.2"
+	}
+}
