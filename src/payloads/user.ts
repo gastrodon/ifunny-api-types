@@ -202,7 +202,7 @@ export type MemeRank = `${RANKS}`;
  * Known ban types
  */
 export enum BAN_TYPES {
-	COLLECTIVE_SHADOW = "collective",
+	COLLECTIVE_SHADOW = "collective_shadow",
 }
 
 /**
