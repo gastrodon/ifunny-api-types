@@ -6,8 +6,8 @@
 	"types": "types",
 	"scripts": {
 		"build-js": "tsc",
-		"build": "npm run build-js && npm run changelog",
-		"changelog": "auto-changelog -p  && git add CHANGELOG.md",
+		"build": "npm run build-js",
+		"changelog": "auto-changelog -p  && git add CHANGELOG.md && git commit -m \"Doc: Update CHANGELOG.md\"",
 		"test": "tsc --noEmit",
 		"link": "npm run build && npm link"
 	},
