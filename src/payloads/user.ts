@@ -1,4 +1,5 @@
 import { HexCode, Size, Timestamp } from "../utils/util";
+import { APIBasePayload } from "./base";
 
 export interface APIUser extends APIUserBase {
 	/**
@@ -51,7 +52,7 @@ export interface APIUser extends APIUserBase {
  * API Base User Payload\
  * ? All required properties
  */
-export interface APIUserBase {
+export interface APIUserBase extends APIBasePayload {
 	/**
 	 * The user's meme experience
 	 */

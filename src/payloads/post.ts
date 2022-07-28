@@ -1,10 +1,12 @@
 import { HexCode, Size, Timestamp } from "../utils/util";
+import { APIBasePayload } from "./base";
 import { APIUser, APIUserNums } from "./user";
 
 /**
  * JSON data of an iFunny Post
  */
-export interface APIPostBase<Type extends APIPostType = APIPostType> {
+export interface APIPostBase<Type extends APIPostType = APIPostType>
+	extends APIBasePayload {
 	/**
 	 * Unique id of the post.\
 	 * Typically 9 characters long
@@ -147,14 +149,18 @@ export type APIPostShotStatus = `${SHOT_STATUSES}`;
  * All currently known post types
  */
 export enum POST_TYPES {
-	PIC = "pic",
-	VIDEO_CLIP = "video_clip",
-	GIF = "gif",
-	GIF_CAPTION = "gif_caption",
 	CAPTION = "caption",
+	VIDEO = "video",
 	VINE = "vine",
+	COUB = "coub",
+	PIC = "pic",
+	OLD = "old",
+	MEM = "mem",
+	GIF = "gif",
+	DEM = "dem",
+	GIF_CAPTION = "gif_caption",
 	COMICS = "comics",
-	MEME = "mem",
+	VIDEO_CLIP = "video_clip",
 }
 
 /**
