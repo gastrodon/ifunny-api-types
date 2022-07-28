@@ -2,6 +2,27 @@
 > All notable changes to this project will be documented in this file.
 > This Changelog adheres to the [Semantic Versioning]("https://semver.org/")
 
+## [v0.3.0](https://github.com/ifunny-co/ifunny-api-types/compare/v0.2.1...v0.3.0) - 2022-07-28
+
+### Features
+
+*  Added oauth2.ts @MakeShiftArtist ([`ae2c3fd`](https://github.com/ifunny-co/ifunny-api-types/commit/ae2c3fda42eb453eda6be66b1d3a0e074faa2ae0))
+*  Added CaptchaError interface @MakeShiftArtist ([`a3abade`](https://github.com/ifunny-co/ifunny-api-types/commit/a3abadeb749fc7ce05abd63ab7045e44b0672820))
+
+
+
+
+
+## [v0.2.1](https://github.com/ifunny-co/ifunny-api-types/compare/v0.2.0...v0.2.1) - 2022-07-28
+
+
+
+
+### Documentation
+
+*  Updated Changelog @MakeShiftArtist ([`587fef1`](https://github.com/ifunny-co/ifunny-api-types/commit/587fef10b6cdef191d5f81f35a28a657ea70d7c0))
+
+
 ## [v0.2.0](https://github.com/ifunny-co/ifunny-api-types/compare/v0.1.1...v0.2.0) - 2022-07-28
 
 ### Features
