@@ -1,3 +1,24 @@
+/**
+ * Returns when the request throws an error.
+ */
+export interface RESTAPIErrorResponse {
+	/**
+	 * The error code for the error
+	 */
+	error: string;
+	/**
+	 * The error message for the error
+	 */
+	error_description: string;
+	/**
+	 * HTTP status code for the error
+	 */
+	status: number;
+}
+
+/**
+ * Returns when the request was a success
+ */
 export interface RESTAPISuccessResponse<T extends unknown> {
 	/**
 	 * The data returned from the API
@@ -12,7 +33,7 @@ export interface RESTAPISuccessResponse<T extends unknown> {
 /**
  * Common data response
  */
-export interface RESTAPIData<Item extends unknown> {
+export interface RESTAPIItems<Item extends unknown> {
 	/**
 	 * Array of items returned from the API
 	 */
