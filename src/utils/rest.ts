@@ -1,3 +1,25 @@
+export interface RESTAPICaptchaError extends RESTAPIErrorResponse {
+	error: "captcha_required";
+	error_description: "Human verification is required";
+	data: {
+		captcha_url: string;
+		type: CaptchaType;
+	};
+	status: 403;
+}
+
+enum CaptchaTypes {
+	FUN_CAPTCHA = "fun_captcha",
+}
+
+type CaptchaType = `${CaptchaTypes}`;
+
+export interface RESTAPIExpiredBearerError extends RESTAPIErrorResponse {
+	status: 401;
+	error: "invalid_grant";
+	error_description: "token is expired";
+}
+
 /**
  * Returns when the request throws an error.
  */
