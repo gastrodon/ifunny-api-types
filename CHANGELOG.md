@@ -2,6 +2,19 @@
 > All notable changes to this project will be documented in this file.
 > This Changelog adheres to the [Semantic Versioning]("https://semver.org/")
 
+## [v0.4.0](https://github.com/ifunny-co/ifunny-api-types/compare/v0.4.0...v0.4.0) - 2022-07-29
+
+
+### Fixes
+
+*  Moved invalid creds to errors.ts @MakeShiftArtist ([`4c0987a`](https://github.com/ifunny-co/ifunny-api-types/commit/4c0987a1b1157672d1ffa155ef4f2f1ce8dcbc43))
+
+
+### Documentation
+
+*  Update CHANGELOG.md @MakeShiftArtist ([`90259dc`](https://github.com/ifunny-co/ifunny-api-types/commit/90259dce42ba9a38b3a5da038c78241244251bc3))
+
+
 ## [v0.4.0](https://github.com/ifunny-co/ifunny-api-types/compare/v0.3.1...v0.4.0) - 2022-07-28
 
 ### Features
