@@ -1,4 +1,13 @@
 /**
+ * Thrown when trying to login with invalid email or password
+ */
+export interface RESTAPIInvalidCreds {
+	error: "invalid_grant";
+	error_description: "Wrong user credentials";
+	status: 400;
+}
+
+/**
  * This is thrown when you need to solve a captcha to complete the request.
  */
 export interface RESTAPICaptchaError {

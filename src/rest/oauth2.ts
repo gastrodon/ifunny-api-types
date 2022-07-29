@@ -1,8 +1,8 @@
 import {
-	RESTAPIErrorResponse,
 	RESTAPICaptchaError,
-	RESTAPIExpiredBearerError,
-} from "../utils/rest";
+	RESTAPIErrorResponse,
+	RESTAPIInvalidCreds,
+} from "../utils/errors";
 
 export type RESTAPIOauth2Login =
 	| RESTAPIOauth2LoginSuccess
@@ -20,13 +20,4 @@ export enum TokenTypes {
 	Basic = "basic",
 }
 
-export interface RESTAPIOauth2LoginInvalidCreds extends RESTAPIErrorResponse {
-	error: "invalid_grant";
-	error_description: "Wrong user credentials";
-	status: 400;
-}
-
-export type RESTAPIOauth2LoginError =
-	| RESTAPIOauth2LoginInvalidCreds
-	| RESTAPICaptchaError
-	| RESTAPIExpiredBearerError;
+export type RESTAPIOauth2LoginError = RESTAPIInvalidCreds | RESTAPIErrorResponse;
