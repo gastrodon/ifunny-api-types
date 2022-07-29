@@ -2,7 +2,24 @@
 > All notable changes to this project will be documented in this file.
 > This Changelog adheres to the [Semantic Versioning]("https://semver.org/")
 
-## [v0.3.0](https://github.com/ifunny-co/ifunny-api-types/compare/v0.3.0...v0.3.0) - 2022-07-28
+## [v0.4.0](https://github.com/ifunny-co/ifunny-api-types/compare/v0.3.1...v0.4.0) - 2022-07-28
+
+### Features
+
+*  Moved all errors to error.ts @MakeShiftArtist ([`0979727`](https://github.com/ifunny-co/ifunny-api-types/commit/0979727e8f7161b29eff3c6f21f3b9640a7ced1e))
+*  Added missing socials @MakeShiftArtist ([`087135f`](https://github.com/ifunny-co/ifunny-api-types/commit/087135f4b7952b1406707f06d653b3a81cbf4c06))
+*  Added ban.ts to payloads @MakeShiftArtist ([`e6661a2`](https://github.com/ifunny-co/ifunny-api-types/commit/e6661a29c4c672e8c1ac3df6d260ab031e67bc17))
+*  Moved errors to src/utils/errors.ts @MakeShiftArtist ([`6e0ce87`](https://github.com/ifunny-co/ifunny-api-types/commit/6e0ce87f9bd8ecfab37fd3a07a883e2a2499c65d))
+*  Added more enum values to post.ts @MakeShiftArtist ([`3746387`](https://github.com/ifunny-co/ifunny-api-types/commit/374638750f5fc8e3d7fe24a218034257e0553215))
+
+
+
+### Documentation
+
+*  Added some missing comments @MakeShiftArtist ([`fe15912`](https://github.com/ifunny-co/ifunny-api-types/commit/fe15912e8fe8553b97f98343ac9f624477445e2c))
+
+
+## [v0.3.1](https://github.com/ifunny-co/ifunny-api-types/compare/v0.3.0...v0.3.1) - 2022-07-28
 
 
 ### Fixes
@@ -13,6 +30,7 @@
 ### Documentation
 
 *  Updated Changelog @MakeShiftArtist ([`c8f151e`](https://github.com/ifunny-co/ifunny-api-types/commit/c8f151e1cd66f3c99413c4b738ebd1ab72fe114f))
+*  Update CHANGELOG.md @MakeShiftArtist ([`66f8fff`](https://github.com/ifunny-co/ifunny-api-types/commit/66f8fffe489018cf89a701cec4dde28b3356c0c1))
 
 
 ## [v0.3.0](https://github.com/ifunny-co/ifunny-api-types/compare/v0.2.1...v0.3.0) - 2022-07-28
