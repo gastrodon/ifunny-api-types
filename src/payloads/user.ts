@@ -1,4 +1,5 @@
-import { HexCode, Size, Timestamp } from "../utils/util";
+import { HexCode, Size } from "../utils/util";
+import { APIBan } from "./ban";
 import { APIBasePayload } from "./base";
 
 export interface APIUser extends APIUserBase {
@@ -198,35 +199,6 @@ export enum RANKS {
 
 export type MemeRank = `${RANKS}`;
 
-// TODO: Discover more ban types
-/**
- * Known ban types
- */
-export enum BAN_TYPES {
-	COLLECTIVE_SHADOW = "collective_shadow",
-}
-
-/**
- * ? Place holder for when more ban types are known
- */
-export type APIBanType = `${BAN_TYPES}`;
-
-export interface APIBan {
-	/**
-	 * Unique ban Id
-	 */
-	id: string;
-	/**
-	 * Unix timestamp of when the ban expires\
-	 * ? IN SECONDS! More better accuracy, convert to milliseconds
-	 */
-	date_until: Timestamp;
-	/**
-	 * Known {@link BAN_TYPES types}
-	 */
-	type: APIBanType;
-}
-
 export interface APIProfilePhoto {
 	/**
 	 * Profile Photo background color {@link HexCode}
@@ -344,19 +316,39 @@ export type APINickColor = `${NICK_COLORS}`;
 /**
  * A user's linked socials
  */
+export interface APIUserAllSocials {
+	/**
+	 * Apple account linked to the user
+	 */
+	apple?: APIUserSocial;
+	/**
+	 * Facebook account linked to the user
+	 */
+	fb?: APIUserSocial;
+	/**
+	 * Google account linked to the user
+	 */
+	ggl?: APIUserSocial;
+	/**
+	 * Odnoklassniki account linked to the user (Russian social media)
+	 */
+	ok?: APIUserSocial;
+	/**
+	 * Twitter account linked to the user
+	 */
+	tw?: APIUserSocial;
+	/**
+	 * V Kontakte account linked to the user (Russian social media)
+	 */
+	vk?: APIUserSocial;
+}
+
+/**
+ * A user's linked social
+ */
 export interface APIUserSocial {
-	ggl?: APIUserSocialGoogle;
-	tw?: APIUserSocialTwitter;
-}
-
-export interface APIUserSocialGoogle {
 	id: string;
 	is_hidden: boolean;
-	link: string;
-}
-
-export interface APIUserSocialTwitter {
-	id: string;
-	is_hidden: boolean;
+	nick?: string;
 	link: string;
 }
