@@ -2,6 +2,19 @@
 > All notable changes to this project will be documented in this file.
 > This Changelog adheres to the [Semantic Versioning]("https://semver.org/")
 
+## [v0.4.3](https://github.com/ifunny-co/ifunny-api-types/compare/v0.4.2...v0.4.3) - 2022-07-28
+
+
+### Fixes
+
+*  Sorted imports @MakeShiftArtist ([`2875299`](https://github.com/ifunny-co/ifunny-api-types/commit/287529902c87135d681605614055a2482f8b56fe))
+
+
+### Documentation
+
+*  Update CHANGELOG.md @MakeShiftArtist ([`33c7744`](https://github.com/ifunny-co/ifunny-api-types/commit/33c774469a28f5577a4bda227b35d49e4df00288))
+
+
 ## [v0.4.2](https://github.com/ifunny-co/ifunny-api-types/compare/v0.4.1...v0.4.2) - 2022-07-28
 
 
