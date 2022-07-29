@@ -131,16 +131,18 @@ export interface APIPostBase<Type extends APIPostType = APIPostType>
 
 // Enum types
 
-// TODO: Document more visibility options
 export enum POST_VISIBILITIES {
 	PUBLIC = "public",
+	subscribers = "subscribers",
+	closed = "closed",
 }
 
 export type APIPostVisibility = `${POST_VISIBILITIES}`;
 
-// TODO: Document more shot status options
 export enum SHOT_STATUSES {
 	APPROVED = "approved",
+	HARD_SHOT = "hardShot",
+	SHOT = "shot",
 }
 
 export type APIPostShotStatus = `${SHOT_STATUSES}`;
@@ -157,6 +159,7 @@ export enum POST_TYPES {
 	OLD = "old",
 	MEM = "mem",
 	GIF = "gif",
+	APP = "app",
 	DEM = "dem",
 	GIF_CAPTION = "gif_caption",
 	COMICS = "comics",
