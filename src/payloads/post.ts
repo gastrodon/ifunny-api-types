@@ -1,6 +1,7 @@
-import { HexCode, Size, Timestamp } from "../utils/util";
-import { APIBasePayload } from "./base";
 import { APIUser, APIUserNums } from "./user";
+import { HexCode, Size, Timestamp } from "../utils/util";
+
+import { APIBasePayload } from "./base";
 
 /**
  * JSON data of an iFunny Post

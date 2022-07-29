@@ -1,5 +1,6 @@
-import { APIPost } from "../payloads/post";
 import { RESTAPIPaging, RESTAPISuccessResponse } from "../utils/rest";
+
+import { APIPost } from "../payloads/post";
 import { ValueOf } from "../utils/util";
 
 export type RESTAPIExploreSuccess = RESTAPISuccessResponse<RESTAPIExploreData>;

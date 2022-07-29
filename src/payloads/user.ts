@@ -1,4 +1,5 @@
 import { HexCode, Size } from "../utils/util";
+
 import { APIBan } from "./ban";
 import { APIBasePayload } from "./base";
 
