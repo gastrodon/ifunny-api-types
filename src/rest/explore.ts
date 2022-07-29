@@ -23,6 +23,9 @@ export interface RESTAPIExploreActiveTab extends RESTAPIExploreTabBase {
 	compilations_set: APIExploreCompilationSet;
 }
 
+/**
+ * All known explore tab ids
+ */
 export enum EXPLORE_TAB_IDS {
 	Best = 2,
 	Memes = 3,
@@ -85,6 +88,7 @@ interface APIExploreContext {
 	paging: RESTAPIPaging;
 }
 
+// TODO: Document all compilation ids
 export enum EXPLORE_COMPILATION_IDS {
 	CONTENT_TOP_OVERALL = "content_top_overall",
 	CONTENT_TOP_TODAY = "content_top_today",
