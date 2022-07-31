@@ -2,6 +2,26 @@
 > All notable changes to this project will be documented in this file.
 > This Changelog adheres to the [Semantic Versioning]("https://semver.org/")
 
+## [v0.5.0](https://github.com/ifunny-co/ifunny-api-types/compare/v0.4.3...v0.5.0) - 2022-07-31
+
+### Features
+
+*  Added activity and comment to src/payloads @MakeShiftArtist ([`32f96e2`](https://github.com/ifunny-co/ifunny-api-types/commit/32f96e21817e0ac08800fd5532d3bbf8bb3bca24))
+*  More post data types and improved docs @MakeShiftArtist ([`91cd377`](https://github.com/ifunny-co/ifunny-api-types/commit/91cd37791c0218c5267dcf4a7ecb55875fa19f19))
+*  Added rest/post.ts with report reasons @MakeShiftArtist ([`cdd4786`](https://github.com/ifunny-co/ifunny-api-types/commit/cdd4786acb762529f58e877ae6ae4d75fb8f5749))
+*  Added phone to client payload @MakeShiftArtist ([`ab16c04`](https://github.com/ifunny-co/ifunny-api-types/commit/ab16c04a01d604bafbfbbc9dc568235c1ecdf825))
+
+### Fixes
+
+*  Ban enums are SCREAMING_SNAKECASE @MakeShiftArtist ([`cc48e43`](https://github.com/ifunny-co/ifunny-api-types/commit/cc48e43da04de230aeda4f2852407eb04ea07bc7))
+*  Changed APIUser values from false to boolean @MakeShiftArtist ([`00ec547`](https://github.com/ifunny-co/ifunny-api-types/commit/00ec547e01ac77690027d508e2b78f309b0b5c26))
+
+
+### Documentation
+
+*  Update CHANGELOG.md @MakeShiftArtist ([`0c951e0`](https://github.com/ifunny-co/ifunny-api-types/commit/0c951e00d2a3a6dd893cec8c1e266263f780e033))
+
+
 ## [v0.4.3](https://github.com/ifunny-co/ifunny-api-types/compare/v0.4.2...v0.4.3) - 2022-07-28
 
 
