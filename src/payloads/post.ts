@@ -112,74 +112,174 @@ export interface APIPostBase<Type extends APIPostType = APIPostType>
 	 */
 	visibility: APIPostVisibility;
 	/**
-	 * ? Don't know what this is
+	 * TODO: shot_status description
 	 */
 	shot_status: APIPostShotStatus;
 	/**
-	 * ? Don't know what this does
+	 * TODO: fast_start description
 	 */
 	fast_start: boolean;
+	/**
+	 * The risk level of the post
+	 */
+	risk: number;
 	/**
 	 * @example
 	 * `https://ifunny.co/picture/${post.id}`
 	 */
 	canonical_url: string;
 	/**
+	 * Text generated from iFunny's {@link https://www.ibm.com/cloud/blog/optical-character-recognition OCR}
+	 */
+	ocr_text?: string;
+	/**
 	 * Can the post be boosted still
 	 */
 	can_be_boosted: boolean;
 }
 
-// Enum types
+// * Enum types
 
+/**
+ * Post visibility types
+ */
 export enum POST_VISIBILITIES {
+	/**
+	 * Anyone can see the post
+	 */
 	PUBLIC = "public",
-	subscribers = "subscribers",
-	closed = "closed",
+	/**
+	 * Post is hidden from collective and explore
+	 */
+	SUBSCRIBERS = "subscribers",
+	/**
+	 * Only the creator can see the post
+	 */
+	CLOSED = "closed",
 }
 
 export type APIPostVisibility = `${POST_VISIBILITIES}`;
 
+/**
+ * Post shot status types
+ */
 export enum SHOT_STATUSES {
+	/**
+	 * The post was approved for upload
+	 */
 	APPROVED = "approved",
+	/**
+	 * The post was uploaded but immediately deleted by the auto moderation system
+	 */
 	HARD_SHOT = "hardShot",
+	/**
+	 * TODO: Find a post with shot status and document difference.
+	 */
 	SHOT = "shot",
 }
 
+/**
+ * Possible shot statuses
+ */
 export type APIPostShotStatus = `${SHOT_STATUSES}`;
 
 /**
  * All currently known post types
  */
 export enum POST_TYPES {
-	CAPTION = "caption",
-	VIDEO = "video",
-	VINE = "vine",
-	COUB = "coub",
-	PIC = "pic",
-	OLD = "old",
-	MEM = "mem",
-	GIF = "gif",
-	APP = "app",
-	DEM = "dem",
-	GIF_CAPTION = "gif_caption",
-	COMICS = "comics",
+	// * Videos
+	/**
+	 * Most common video post type\
+	 * Data key: `video_clip`
+	 */
 	VIDEO_CLIP = "video_clip",
+	/**
+	 * A video uploaded from a url like YouTube\
+	 * Data key: `video`
+	 */
+	VIDEO = "video",
+	/**
+	 * A video uploaded from vine\
+	 * Data key: `vine`
+	 */
+	VINE = "vine",
+	/**
+	 * Video meme from {@link https://coub.com Coub}\
+	 * Data key: `coub`
+	 */
+	COUB = "coub",
+	// * Gifs
+	/**
+	 * Gif uploaded to ifunny\
+	 * Data key: `gif`
+	 */
+	GIF = "gif",
+	/**
+	 * Gif with a caption\
+	 * Data key: `gif`
+	 */
+	GIF_CAPTION = "gif_caption",
+	// * Images
+	/**
+	 * An image post with a custom caption\
+	 * Data key: `caption`
+	 */
+	CAPTION = "caption",
+	/**
+	 * Image upload\
+	 * Data key: `pic`
+	 */
+	PIC = "pic",
+	/**
+	 * Image uploaded from iFunny's old "Meme" upload system.\
+	 * This is no longer in iFunny
+	 */
+	MEM = "mem",
+	/**
+	 * An image uploaded from ifunny's comic creator
+	 */
+	COMICS = "comics",
+	// * Special / Unknown
+	/**
+	 * An interactive post from iFunny
+	 * @deprecated These posts have been removed from the database and will not be available
+	 */
+	APP = "app",
+	/**
+	 * Unknown post type\
+	 * TODO: Document what POST_TYPES.OLD is
+	 */
+	OLD = "old",
+	/**
+	 * Unknown post type\
+	 * TODO: Document what POST_TYPES.DEM is
+	 */
+	DEM = "dem",
 }
 
 /**
  * Possible post types
  */
-export type APIPostType = `${POST_TYPES}`;
+export type APIPostType = `${Exclude<POST_TYPES, POST_TYPES.APP>}`;
 
 // TODO: Discover more post states
 export enum POST_STATES {
+	/**
+	 * The post is published
+	 */
 	PUBLISHED = "published",
+	/**
+	 * A post that was scheduled to be published later
+	 */
+	DELAYED = "delayed",
 }
 
+/**
+ * Possible post states
+ */
 export type APIPostState = `${POST_STATES}`;
 
-// Sub objects
+// * Sub objects
 
 /**
  * Author of a Post\
@@ -254,8 +354,7 @@ export interface APIPostNums {
 	 */
 	republished: number;
 	/**
-	 * How many shares the post has.\
-	 * ? Increases from the share url if the share url is different from the web_url
+	 * How many shares the post has
 	 */
 	shares: number;
 }
@@ -286,11 +385,11 @@ export interface APIPostCopyright {
  * `crop:x+{number}` leaves `number` pixels at the top, and crops the rest\
  * `crop:square` makes the image a square aspect ratio\
  * `resize:{number}` changes the size of the image\
- * `quality:{number}` changes the image quality\
+ * `quality:{number}` changes the image quality
  *
  *
  * ? Bottom iFunny watermarks are 20 pixels tall\
- * ? `crop:x-20` crops the watermakr from an image
+ * ? `crop:x-20` crops the watermark from an image
  */
 export interface APIPostThumbnail {
 	/**
@@ -371,30 +470,41 @@ export interface APIGifCaptionPost extends APIPostBase<"gif_caption"> {
 	gif: APIPostGifCaptionData;
 }
 
-/**
- * A caption post
- */
 export interface APICaptionPost extends APIPostBase<"caption"> {
 	caption: APIPostCaptionData;
 }
 
 // TODO: Add data types
-export interface APIVinePost extends APIPostBase<"vine"> {}
+export interface APIVinePost extends APIPostBase<"vine"> {
+	screen_url: string;
+	bytes: number;
+}
 
-// TODO: Add data types
-export interface APIComicsPost extends APIPostBase<"comics"> {}
+export interface APIComicsPost extends APIPostBase<"comics"> {
+	comics: {
+		webp_url: string;
+	};
+}
 
-// TODO: Add data types
-export interface APIMemePost extends APIPostBase<"mem"> {}
+export interface APIMemePost extends APIPostBase<"mem"> {
+	mem: {
+		webp_url: string;
+	};
+}
 
-// Data objects
+// * Data objects
+
 export interface APIPostVideoData {
 	screen_url: string;
 	bytes: number;
-	source_type: "user";
-	duration: 0;
+	source_type: APIVideoPostSourceType;
+	/**
+	 * In seconds
+	 */
+	duration: number;
 }
 
+// TODO: Find more VIDEO_SOURCE_TYPES
 export enum VIDEO_SOURCE_TYPES {
 	USER = "user",
 }
