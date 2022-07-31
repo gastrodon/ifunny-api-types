@@ -15,11 +15,11 @@ export interface APIUser extends APIUserBase {
 	/**
 	 * Is the user blocked by the client
 	 */
-	is_blocked: false;
+	is_blocked: boolean;
 	/**
 	 * Did the user block the client
 	 */
-	are_you_blocked: false;
+	are_you_blocked: boolean;
 	/**
 	 * User's cover image url
 	 * @example
