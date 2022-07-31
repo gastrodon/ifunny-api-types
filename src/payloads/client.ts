@@ -3,7 +3,23 @@ import { APIUserBase } from "./user";
 /**
  * The user data retrieved from `/account`
  */
-export interface APIClientUser extends APIUserBase {
+export interface APIClientUser extends Omit<APIUserBase, "rating"> {
+	/**
+	 * The verified phone number attatched to the Client's account
+	 */
+	phone?: string;
+	/**
+	 * Data about the phone number attatched to the Client's account'
+	 */
+	phone_data?: APIClientPhoneData;
+	/**
+	 * Unverified phone number attatched to the Client's account
+	 */
+	unconfirmed_phone?: string;
+	/**
+	 * Data about the phone number attatched to the Client's account
+	 */
+	unconfirmed_phone_data?: APIClientPhoneData;
 	/**
 	 * Is the client blocked from using chats
 	 */
@@ -60,6 +76,17 @@ export interface APIClientUser extends APIUserBase {
 	 * The email attached to the Client's account
 	 */
 	email: string;
+}
+
+interface APIClientPhoneData {
+	/**
+	 * Country code of the phone number
+	 */
+	code: string;
+	/**
+	 * 10 digit phone number
+	 */
+	number: string;
 }
 
 /**
