@@ -23,14 +23,14 @@ export interface APIBan {
  * All known ban reasons
  */
 export enum BAN_REASONS {
-	BotSpam = "bot_spam",
-	Abuse = "abuse_harassment",
-	ChildPorn = "child_pornography",
-	Hardcore = "hardcore",
-	Other = "other",
-	DeathGore = "death_gore",
-	HateSpeech = "hate_speech",
-	Threats = "threats_of_harm",
+	SPAM = "bot_spam",
+	ABUSE = "abuse_harassment",
+	CHILD_PORN = "child_pornography",
+	HARDCORE = "hardcore",
+	OTHER = "other",
+	DEATH_GORE = "death_gore",
+	HATE_SPEECH = "hate_speech",
+	THREATS = "threats_of_harm",
 }
 
 /**
@@ -42,18 +42,18 @@ export type APIBanReason = `${BAN_REASONS}`;
  * All known ban types
  */
 export enum BAN_TYPES {
-	ContentCreation = "content_creation",
-	ChatAccess = "chat_access",
-	Subscribing = "subscribing",
-	CommentCreation = "comment_creation",
-	Republishing = "repubing",
-	ProfileAccess = "profile_access",
-	Smiling = "smiling",
-	Other = "other",
+	CONTENT_CREATION = "content_creation",
+	CHAT_ACCESS = "chat_access",
+	SUBSCRIBING = "subscribing",
+	COMMENTING = "comment_creation",
+	REPUBING = "repubing",
+	PROFILE = "profile_access",
+	SMILING = "smiling",
+	OTHER = "other",
 	/**
 	 * Not in app but from requests.
 	 */
-	CollectiveShadow = "collective_shadow",
+	COLLECTIVE_SHADOW = "collective_shadow",
 }
 
 /**
