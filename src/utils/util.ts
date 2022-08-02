@@ -58,3 +58,16 @@ export type Timestamp = number;
  *
  */
 export type ValueOf<T extends unknown, K extends keyof T = keyof T> = T[K];
+
+/**
+ * Like {@link Pick}, but each key is made required
+ * @example
+ * interface Foo {
+ * 	bar?: string
+ * 	spam?: number
+ * }
+ *
+ * type FooBar = Has<Foo, 'bar'>; // Expect { bar: string }
+ * type FooBarOrSpam = Has<Foo, 'bar'|'spam'>; // Expect { bar: string; spam: number }
+ */
+export type Has<T, K extends keyof T> = { [P in K]-?: T[P] };
