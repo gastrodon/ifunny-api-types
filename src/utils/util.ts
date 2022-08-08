@@ -71,3 +71,15 @@ export type ValueOf<T extends unknown, K extends keyof T = keyof T> = T[K];
  * type FooBarOrSpam = Has<Foo, 'bar'|'spam'>; // Expect { bar: string; spam: number }
  */
 export type Has<T, K extends keyof T> = { [P in K]-?: T[P] };
+
+export type Primitive = string | number | boolean | null;
+
+export type JSONValue = Primitive | JSONObject | JSONValue[];
+
+/**
+ * Represents a raw JSON Object
+ */
+export interface JSONObject {
+	[key: string]: JSONValue;
+	[index: number]: never;
+}
