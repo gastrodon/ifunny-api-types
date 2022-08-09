@@ -1,7 +1,7 @@
 /**
  * Possible report reasons
  */
-enum REPORT_TYPE {
+export enum REPORT_TYPE {
 	/**
 	 * Hate Speech
 	 */
@@ -51,8 +51,13 @@ enum REPORT_TYPE {
 /**
  * Where the post was viewed from
  */
-enum VIEWED_FROM {
-	PROFILE = "prof",
-	FEATURES = "feat",
+export enum VIEWED_FROM {
+	CHANNEL = "channel",
 	COLLECTIVE = "coll",
+	FEATURES = "feat",
+	MONOFEED = "monofeed",
+	MY_SMILES = "my-smiles",
+	PROFILE = "prof",
+	SUBS = "subs",
+	TAG = "tag",
 }
