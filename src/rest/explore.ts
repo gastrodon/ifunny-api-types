@@ -1,6 +1,6 @@
 import { RESTAPIPaging, RESTAPISuccessResponse } from "../utils/rest";
 
-import { APIPost } from "../payloads/post";
+import { APIContent } from "../payloads/content";
 import { ValueOf } from "../utils/util";
 
 export type RESTAPIExploreSuccess = RESTAPISuccessResponse<RESTAPIExploreData>;
@@ -33,6 +33,8 @@ export enum EXPLORE_TAB_IDS {
 	Users = 4,
 	Chats = 5,
 	Channels = 6,
+	Tags = 7,
+	All = 8,
 }
 
 export type APIExploreTabName = keyof typeof EXPLORE_TAB_IDS;
@@ -85,7 +87,7 @@ interface APIExploreCompilation {
 }
 
 interface APIExploreContext {
-	items: APIPost[];
+	items: APIContent[];
 	paging: RESTAPIPaging;
 }
 
