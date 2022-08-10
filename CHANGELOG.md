@@ -2,6 +2,35 @@
 > All notable changes to this project will be documented in this file.
 > This Changelog adheres to the [Semantic Versioning]("https://semver.org/")
 
+## [v0.6.0](https://github.com/ifunny-co/ifunny-api-types/compare/v0.5.0...v0.6.0) - 2022-08-10
+
+### Features
+
+*  Refactor payloads/comment.ts @MakeShiftArtist ([`2f5774a`](https://github.com/ifunny-co/ifunny-api-types/commit/2f5774a111d2de94cc1c1b661568dd0f0bfffd6f))
+*  Add all known iFunny API Errors @MakeShiftArtist ([`163bd01`](https://github.com/ifunny-co/ifunny-api-types/commit/163bd0106ffb7c89a8e599ef62f31f3ab47f4ba6))
+*  Fixed exports and added enum values @MakeShiftArtist ([`c66c114`](https://github.com/ifunny-co/ifunny-api-types/commit/c66c114932808ab37a19a70b021c813a1f1ca384))
+*  Added JSONObject & JSONValue to utils/util @MakeShiftArtist ([`795ce2f`](https://github.com/ifunny-co/ifunny-api-types/commit/795ce2f60d903aeefbf6ba43eee363d1bbc167f7))
+
+### Fixes
+
+*  TokenTypes changed to standard enum case @MakeShiftArtist ([`ad970ca`](https://github.com/ifunny-co/ifunny-api-types/commit/ad970ca06524234a1a47428b1bf5ed314dee64e7))
+*  Enums are now singular in payloads/user @MakeShiftArtist ([`fd48a57`](https://github.com/ifunny-co/ifunny-api-types/commit/fd48a57a103f0c2f644972712b8363a556ca8358))
+*  Added `Has` utility types @MakeShiftArtist ([`6a52216`](https://github.com/ifunny-co/ifunny-api-types/commit/6a52216451e4b2f69ad1e43bdcd7084c59424a37))
+*  Fixed imports and type names in rest/explore @MakeShiftArtist ([`b2bcf41`](https://github.com/ifunny-co/ifunny-api-types/commit/b2bcf41fb4659453fa2d32baad3c9b641ec5bb52))
+*  Fixed exports @MakeShiftArtist ([`ba8b402`](https://github.com/ifunny-co/ifunny-api-types/commit/ba8b402dc3141e944ea734187b0290135cd90155))
+*  Added logo_url to APIVideoClipContentData @MakeShiftArtist ([`b3a8bfa`](https://github.com/ifunny-co/ifunny-api-types/commit/b3a8bfad1bf97a1322cd926cf00e08dea2b3ae85))
+
+### Breaking changes
+
+*  Refactor of post into content @MakeShiftArtist ([`103a00a`](https://github.com/ifunny-co/ifunny-api-types/commit/103a00a649a17acda5b78854589c1f275a304556))
+*  Refactor to simplify news types @MakeShiftArtist ([`e51f5de`](https://github.com/ifunny-co/ifunny-api-types/commit/e51f5de16ae5a61c61f669af3738560377368569))
+*  Renamed rest/post to rest/content @MakeShiftArtist ([`eaaaa1e`](https://github.com/ifunny-co/ifunny-api-types/commit/eaaaa1ea4fea1788e40e7864462db949d24c8fc4))
+
+### Documentation
+
+*  Update CHANGELOG.md @MakeShiftArtist ([`08645c6`](https://github.com/ifunny-co/ifunny-api-types/commit/08645c6233c070d948c910e7a746ba3fd209142d))
+
+
 ## [v0.5.0](https://github.com/ifunny-co/ifunny-api-types/compare/v0.4.3...v0.5.0) - 2022-07-31
 
 ### Features
