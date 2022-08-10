@@ -365,6 +365,10 @@ export interface APIVideoClipContentData {
 	bytes: number;
 	source_type: APIVideoSourceType;
 	/**
+	 * Logo url to the source if not 'user'
+	 */
+	logo_url?: string;
+	/**
 	 * In seconds
 	 */
 	duration: Timestamp;
