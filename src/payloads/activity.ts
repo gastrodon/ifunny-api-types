@@ -1,99 +1,100 @@
-import { APICommentBase } from "./comment";
-import { APIPost } from "./post";
+import { APIComment, APIMentionUser, APIReply } from "./comment";
+
+import { APIBanType } from "./ban";
+import { APIContent } from "./content";
 import { APIUser } from "./user";
 import { Timestamp } from "../utils";
 
-/**
- * All current activity types
- * TODO: Add remaining activity types
- */
-export type APIActivity =
-	| APIPostSmiledActivity
-	| APICommentActivity
-	| APICommentSmiledActivity
-	| APISmileTrackerActivity
-	| APICommentReplyActivity
-	| APIRepubRepubActivity;
+interface Smiles {
+	smiles: string;
+}
 
-interface APIActivityBase {
-	type: APIActivityType;
+export interface APINews {
+	ban_id?: string;
+	ban_type?: APIBanType;
+	ban_message?: string;
+	comment?: APIComment;
+	content?: APIContent;
+	count_active_strike?: number;
 	date: Timestamp;
+	date_until?: Timestamp;
+	expired_at?: Timestamp;
+	image_url?: string;
+	mention_content?: APIContent;
+	mention_users?: APIMentionUser[];
+	purchase_type?: string;
+	reply?: APIReply;
+	smiles?: number;
+	strike_id?: string;
+	text?: string;
+	title?: string;
+	type: APINewsType;
+	url?: string;
+	user?: APIUser;
+	username?: string;
 }
 
-interface CommUserCont extends UserCont {
-	comment: APIActivityComment;
-}
-
-interface UserCont extends APIActivityBase {
-	user: APIActivityUser;
-	content: APIPost;
-}
-
-export interface APIPostSmiledActivity extends UserCont {
-	type: ACTIVITY_TYPES.POST_SMILED;
-}
-
-export interface APICommentActivity extends CommUserCont {
-	type: ACTIVITY_TYPES.COMMENT;
-}
-
-export interface APICommentSmiledActivity extends CommUserCont {
-	type: ACTIVITY_TYPES.COMMENT_SMILED;
-}
-
-export interface APISmileTrackerActivity extends APIActivityBase {
-	smiles: number;
-	type: ACTIVITY_TYPES.SMILE_TRACKER;
-}
-
-export interface APICommentReplyActivity extends CommUserCont {
-	reply: APIActivityReply;
-	type: ACTIVITY_TYPES.REPLY;
-}
-
-export interface APIRepubRepubActivity extends UserCont {
-	type: ACTIVITY_TYPES.REPUB_OF_REPUB;
-}
-
-export interface APIActivityReply extends APIActivityComment {
+export interface APINewsReply extends APINewsComment {
 	root_comm_id: string;
 }
 
-export interface APIActivityComment
-	extends Pick<APICommentBase, "text" | "id" | "cid" | "is_reply"> {
-	state: APIActivityCommentState;
-	num: {
-		smiles: number;
-	};
+export interface APINewsComment
+	extends Pick<APIComment, "text" | "id" | "cid" | "is_reply"> {
+	num: Smiles;
 }
 
-/**
- * All known comment states for activity feed
- */
-export enum COMMENT_STATES {
-	NORMAL = "normal",
-}
-
-export type APIActivityCommentState = `${COMMENT_STATES}`;
-
-export type APIActivityUser = Pick<
+export type APINewsUser = Pick<
 	APIUser,
 	"id" | "nick" | "is_banned" | "is_verified" | "is_deleted" | "photo" | "nick_color"
 >;
 
 /**
- * All known activity types
+ * All current new types
  */
-export enum ACTIVITY_TYPES {
-	POST_SMILED = "smile",
+export enum NEWS_TYPES {
+	BAN = "ban",
+	BAN_ACTION = "ban_action",
 	COMMENT = "comment",
-	COMMENT_SMILED = "smile_for_comment",
-	REPLY = "reply_for_comment",
-	SMILE_TRACKER = "smile_tracker",
+	COMMENT_FOR_REPUB = "comment_for_repub",
+	CONTENT_BOOSTED = "content_boost",
+	DELETE = "user_deleted",
+	FEATURED = "featured",
+	FRIEND_REGISTERED = "friend_registered",
+	GEO_FRIEND_ACCEPTED = "geo_friend_accepted",
+	GEO_FRIEND_REJECTED = "geo_friend_rejected",
+	GEO_FRIEND_REQUEST = "geo_friend_request",
+	MENTION_CONTENT = "mention_content",
+	MENTION_USER = "mention_user",
+	PURCHASE_ONETIME = "purchase_onetime",
+	PURCHASE_SUBSCRIPTION = "purchase_subscription",
+	/**
+	 * @deprecated iFunny no longer uses this
+	 */
+	REJECTED_BY_CUSTOMS = "rejected_by_customs",
+	REPLY_FOR_COMMENT = "reply_for_comment",
+	REPORTED_COMMENT_BANNED = "reported_comment_banned",
+	REPORTED_CONTENT_BANNED = "reported_content_banned",
+	REPORTED_USER_BANNED = "reported_user_banned",
+	REPUB = "repub",
 	REPUB_OF_REPUB = "repub_of_repub",
+	SMILE = "smile",
+	SMILE_FOR_COMMENT = "smile_for_comment",
+	SMILE_FOR_REPLY = "smile_for_reply",
+	SMILE_FOR_REPUB = "smile_for_repub",
+	SMILE_TRACKER = "smile_tracker",
+	/**
+	 * @deprecated iFunny no longer uses this
+	 */
+	SPECIAL = "special",
+	STRIKE = "strike_action",
+	STRIKE_EXPIRED = "expire_strike",
+	SUBSCRIBE = "subscribe",
+	UNBAN = "unban",
+	UNBAN_ACTION = "unban_action",
+	UNDELETE = "user_undeleted",
 }
 
 /**
  * All possible activity types
  */
-type APIActivityType = `${ACTIVITY_TYPES}`;
+type APINewsType = `${NEWS_TYPES}`;
