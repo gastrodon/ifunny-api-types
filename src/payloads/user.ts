@@ -140,13 +140,13 @@ export interface APIUserBase extends APIBasePayload {
  * `closed` only the user can create direct messages\
  * ? Backend does not check this status on requests as of 5/28/22
  */
-export enum MESSAGING_PRIVACY_STATUS {
+export enum MESSAGE_PRIVACY {
 	PUBLIC = "public",
 	SUBSCRIBERS = "subscribers",
 	CLOSED = "closed",
 }
 
-export type APIPrivacyStatus = `${MESSAGING_PRIVACY_STATUS}`;
+export type APIPrivacyStatus = `${MESSAGE_PRIVACY}`;
 
 /**
  * A user's meme experience
@@ -159,7 +159,7 @@ export interface APIMemeExperience {
 	/**
 	 * The user's rank name
 	 */
-	rank: MemeRank;
+	rank: APIMemeRank;
 	/**
 	 * MemeRank badge png url
 	 * @example
@@ -177,9 +177,9 @@ export interface APIMemeExperience {
 }
 
 /**
- * All current MemeRanks from the API
+ * All current Meme Ranks from the API
  */
-export enum RANKS {
+export enum RANK {
 	MEME_EXPLORER = "Meme explorer",
 	MEME_BRO = "Meme bro",
 	MEME_DADDY = "Meme daddy",
@@ -193,12 +193,12 @@ export enum RANKS {
 	MEME_DEALER = "Meme dealer",
 	IFUNNY_VETERAN = "iFunny Veteran",
 	/**
-	 * Final MemeExperience rank
+	 * Final Meme Experience rank, achieved at 3000 Days
 	 */
 	CHEFS_MEME_AGENT = "Chef's meme agent",
 }
 
-export type MemeRank = `${RANKS}`;
+export type APIMemeRank = `${RANK}`;
 
 export interface APIProfilePhoto {
 	/**
@@ -299,7 +299,7 @@ export interface APIUserRatingLevelMax extends APIUserRatingLevel {
 /**
  * Known nick colors
  */
-export enum NICK_COLORS {
+export enum NICK_COLOR {
 	BRIGHT_GREEN = "55FF00",
 	BETA_TESTER = BRIGHT_GREEN,
 	MAROON = "660000",
@@ -312,7 +312,7 @@ export enum NICK_COLORS {
  * A user's nick color\
  * ? Nick colors are hex codes but these are the currently documented ones
  */
-export type APINickColor = `${NICK_COLORS}`;
+export type APINickColor = `${NICK_COLOR}`;
 
 /**
  * A user's linked socials
