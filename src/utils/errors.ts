@@ -52,6 +52,7 @@ export enum IFUNNY_ERRORS {
 	FORBIDDEN_FOR_BANNED = "forbidden_for_banned",
 	FORBIDDEN_FOR_DELETED = "forbidden_for_deactivated",
 	INVALID_CLIENT = "invalid_client",
+	INVALID_EMAIL = "invalid_email",
 	INVALID_GRANT = "invalid_grant",
 	NOT_REPUBLISHED = "not_republished",
 	NOT_SMILED = "not_smiled",
