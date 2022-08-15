@@ -2,6 +2,19 @@
 > All notable changes to this project will be documented in this file.
 > This Changelog adheres to the [Semantic Versioning]("https://semver.org/")
 
+## [v0.6.1](https://github.com/ifunny-co/ifunny-api-types/compare/v0.6.0...v0.6.1) - 2022-08-15
+
+
+### Fixes
+
+*  Added INVALID_EMAIL error type @MakeShiftArtist ([`e718f7e`](https://github.com/ifunny-co/ifunny-api-types/commit/e718f7ec765e3ee3c3c4107aecca4295408f8367))
+
+
+### Documentation
+
+*  Update CHANGELOG.md @MakeShiftArtist ([`c92f9b2`](https://github.com/ifunny-co/ifunny-api-types/commit/c92f9b24a3fb3b288f8b3967ba76eb2b179c7266))
+
+
 ## [v0.6.0](https://github.com/ifunny-co/ifunny-api-types/compare/v0.5.0...v0.6.0) - 2022-08-10
 
 ### Features
