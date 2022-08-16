@@ -2,6 +2,19 @@
 > All notable changes to this project will be documented in this file.
 > This Changelog adheres to the [Semantic Versioning]("https://semver.org/")
 
+## [v0.6.2](https://github.com/ifunny-co/ifunny-api-types/compare/v0.6.1...v0.6.2) - 2022-08-16
+
+
+### Fixes
+
+*  APIPrivacyStatus renamed APIChatPrivacyStatus @MakeShiftArtist ([`b8af189`](https://github.com/ifunny-co/ifunny-api-types/commit/b8af189fa06bcdc075113fcdf552607018b51912))
+
+
+### Documentation
+
+*  Update CHANGELOG.md @MakeShiftArtist ([`148a3ce`](https://github.com/ifunny-co/ifunny-api-types/commit/148a3cecdae9ca913fb3325d6899770e5c2afe72))
+
+
 ## [v0.6.1](https://github.com/ifunny-co/ifunny-api-types/compare/v0.6.0...v0.6.1) - 2022-08-15
 
 
