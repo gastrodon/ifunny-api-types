@@ -62,7 +62,7 @@ export interface APIUserBase extends APIBasePayload {
 	/**
 	 * The Chat privacy status of the user
 	 */
-	messaging_privacy_status: APIPrivacyStatus;
+	messaging_privacy_status: APIChatPrivacyStatus;
 	/**
 	 * Can the Client chat with the user
 	 */
@@ -146,7 +146,7 @@ export enum MESSAGE_PRIVACY {
 	CLOSED = "closed",
 }
 
-export type APIPrivacyStatus = `${MESSAGE_PRIVACY}`;
+export type APIChatPrivacyStatus = `${MESSAGE_PRIVACY}`;
 
 /**
  * A user's meme experience
