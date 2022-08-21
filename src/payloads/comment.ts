@@ -64,7 +64,7 @@ export enum COMMENT_STATE {
  */
 export type APICommentState = `${COMMENT_STATE}`;
 
-interface APICommentAuthor extends APIContentCreator {
+export interface APICommentAuthor extends APIContentCreator {
 	rating: APIUserRating;
 }
 
