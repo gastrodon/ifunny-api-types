@@ -8,6 +8,7 @@
 		"build-js": "tsc",
 		"build": "npm run build-js",
 		"changelog": "auto-changelog -p  && git add CHANGELOG.md && git commit -m \"Doc: Update CHANGELOG.md\"",
+		"update": "npx npm-check-updates -u && npm install",
 		"test": "tsc --noEmit",
 		"link": "npm run build && npm link"
 	},
@@ -27,9 +28,9 @@
 	},
 	"homepage": "https://github.com/ifunny-co/ifunny-api-types#readme",
 	"devDependencies": {
-		"@types/node": "^17.0.36",
+		"@types/node": "^18.7.9",
 		"auto-changelog": "^2.4.0",
-		"typescript": "^4.7.2"
+		"typescript": "^4.7.4"
 	},
 	"auto-changelog": {
 		"template": "changelog-template.hbs",
