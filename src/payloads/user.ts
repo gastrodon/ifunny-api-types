@@ -62,7 +62,7 @@ export interface APIUserBase extends APIBasePayload {
 	/**
 	 * The Chat privacy status of the user
 	 */
-	messaging_privacy_status: APIChatPrivacyStatus;
+	messaging_privacy_status: APIUserMessagePrivacy;
 	/**
 	 * Can the Client chat with the user
 	 */
@@ -86,7 +86,7 @@ export interface APIUserBase extends APIBasePayload {
 	/**
 	 * User's inapp share url
 	 * @example
-	 * `https://ifunny.co/user/${APIUser["nick"]}`
+	 * `https://ifunny.co/user/:nick`
 	 */
 	web_url: string;
 	/**
@@ -146,7 +146,7 @@ export enum MESSAGE_PRIVACY {
 	CLOSED = "closed",
 }
 
-export type APIChatPrivacyStatus = `${MESSAGE_PRIVACY}`;
+export type APIUserMessagePrivacy = `${MESSAGE_PRIVACY}`;
 
 /**
  * A user's meme experience
