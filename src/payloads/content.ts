@@ -149,28 +149,23 @@ export type APIContentState = `${CONTENT_STATE}`;
 // * Sub objects
 
 /**
- * Author of a Post\
- * Only includes info also in the user object
- */
-export type APIContentCreatorBase = Pick<
-	APIUser,
-	| "id"
-	| "nick"
-	| "photo"
-	| "is_verified"
-	| "is_banned"
-	| "is_deleted"
-	| "is_in_subscriptions"
-	| "is_in_subscribers"
-	| "is_blocked"
-	| "nick_color"
-	| "original_nick"
->;
-
-/**
  * The creator object for a post
  */
-export interface APIContentCreator extends APIContentCreatorBase {
+export interface APIContentCreator
+	extends Pick<
+		APIUser,
+		| "id"
+		| "nick"
+		| "photo"
+		| "is_verified"
+		| "is_banned"
+		| "is_deleted"
+		| "is_in_subscriptions"
+		| "is_in_subscribers"
+		| "is_blocked"
+		| "nick_color"
+		| "original_nick"
+	> {
 	/**
 	 * Only includes subscription and subscriber count
 	 */
