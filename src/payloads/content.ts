@@ -200,7 +200,8 @@ export interface APIContentNums {
 	 */
 	unsmiles: number;
 	/**
-	 * How many smiles came from users visiting the creators profile
+	 * How many smiles came from users not signed in to iFunny
+	 * ? Not possible in-app but possible in the API by using a basic token
 	 */
 	guest_smiles: number;
 	/**
