@@ -2,6 +2,29 @@
 > All notable changes to this project will be documented in this file.
 > This Changelog adheres to the [Semantic Versioning]("https://semver.org/")
 
+## [v0.6.6](https://github.com/ifunny-co/ifunny-api-types/compare/v0.6.5...v0.6.6) - 2022-08-21
+
+### Features
+
+*  Added days info to RANK enum @MakeShiftArtist ([`a0a227e`](https://github.com/ifunny-co/ifunny-api-types/commit/a0a227e2d8fff7310da3dd122d356973ae10517a))
+
+
+
+### Documentation
+
+*  Fixed APIContentNums.guest_smiles description @MakeShiftArtist ([`46895f8`](https://github.com/ifunny-co/ifunny-api-types/commit/46895f8b40f75e49473aaf0f98b6164b6cc7585b))
+
+
+## [v0.6.5](https://github.com/ifunny-co/ifunny-api-types/compare/v0.6.4...v0.6.5) - 2022-08-21
+
+
+
+
+### Documentation
+
+*  Update CHANGELOG.md @MakeShiftArtist ([`4f6a077`](https://github.com/ifunny-co/ifunny-api-types/commit/4f6a0775138f43799f5c1fdab5049dc7e339082a))
+
+
 ## [v0.6.4](https://github.com/ifunny-co/ifunny-api-types/compare/v0.6.3...v0.6.4) - 2022-08-21
 
 
