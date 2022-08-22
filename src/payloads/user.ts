@@ -180,20 +180,58 @@ export interface APIMemeExperience {
  * All current Meme Ranks from the API
  */
 export enum RANK {
+	/**
+	 * Days: `1-4`
+	 */
 	MEME_EXPLORER = "Meme explorer",
+	/**
+	 * Days: `5-24`
+	 */
 	MEME_BRO = "Meme bro",
+	/**
+	 * Days: `25-49`
+	 */
 	MEME_DADDY = "Meme daddy",
+	/**
+	 * Days: `50-99`
+	 */
 	DANK_MEMER = "Dank memer",
+	/**
+	 * Days: `100-199`
+	 */
 	MEME_MASTER_BAKER = "Meme master baker",
+	/**
+	 * Days: `200-299`
+	 */
 	DEEP_FRIED_MEMER = "Deep fried memer",
+	/**
+	 * Days: `300-499`
+	 */
 	SAUCY_MEMER = "Saucy memer",
+	/**
+	 * Days: `500-665`
+	 */
 	ORIGINAL_MEME_GANGSTER = "Original Meme Gangster",
+	/**
+	 * Days: `666-910`
+	 */
 	MEME_DEMON = "Meme demon",
+	/**
+	 * Days: `911-999`
+	 */
 	STEAL_BEAMS_OF_MEMES = "Steal beams of memes",
+	/**
+	 * Days: `1000-1499`
+	 */
 	MEME_DEALER = "Meme dealer",
+	/**
+	 * Days: `1500-1999`
+	 */
 	IFUNNY_VETERAN = "iFunny Veteran",
 	/**
-	 * Final Meme Experience rank, achieved at 3000 Days
+	 * Days: `2000+`
+	 * * Final Meme Rank
+	 * ? next_milestone is `3000` but rank does not change
 	 */
 	CHEFS_MEME_AGENT = "Chef's meme agent",
 }
