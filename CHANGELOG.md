@@ -2,6 +2,19 @@
 > All notable changes to this project will be documented in this file.
 > This Changelog adheres to the [Semantic Versioning]("https://semver.org/")
 
+## [v0.6.9](https://github.com/ifunny-co/ifunny-api-types/compare/v0.6.8...v0.6.9) - 2022-08-25
+
+
+### Fixes
+
+*  Typo in InvalidEmailError @MakeShiftArtist ([`7cfb791`](https://github.com/ifunny-co/ifunny-api-types/commit/7cfb791cbbaa2e31f38f24f697bf35a16764ee5c))
+
+
+### Documentation
+
+*  Update CHANGELOG.md @MakeShiftArtist ([`35d4a6d`](https://github.com/ifunny-co/ifunny-api-types/commit/35d4a6dba29fdbfdaaeee74c320ddc14152c4da4))
+
+
 ## [v0.6.8](https://github.com/ifunny-co/ifunny-api-types/compare/v0.6.7...v0.6.8) - 2022-08-25
 
 ### Features
