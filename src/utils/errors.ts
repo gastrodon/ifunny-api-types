@@ -38,8 +38,14 @@ type CaptchaType = `${CaptchaTypes}`;
  */
 export type RESTAPIErrorResponse = RESTAPICaptchaError | RESTAPIError;
 
+/**
+ * Possible iFunny Errors
+ */
 export type RESTAPIiFunnyError = `${IFUNNY_ERRORS}`;
 
+/**
+ * All known error types
+ */
 export enum IFUNNY_ERRORS {
 	ALREADY_REPUBLISHED = "already_republished",
 	ALREADY_SMILED = "already_smiled",
@@ -66,6 +72,7 @@ export enum IFUNNY_ERRORS {
 	TOO_MANY_UPPERCASE = "too_many_uppercase",
 	UNACCEPTABLE_SYMBOLS = "unacceptable_symbols",
 	UNAUTHORIZED = "unauthorized",
+	UNKNOWN_ERROR = "unknown_error",
 	UNKNOWN_SOURCE = "unknown_source",
 	VIDEO_IS_INVALID = "video_is_invalid",
 	YOU_ARE_BLOCKED = "you_are_blocked",
