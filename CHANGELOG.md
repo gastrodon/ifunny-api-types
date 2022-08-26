@@ -2,6 +2,20 @@
 > All notable changes to this project will be documented in this file.
 > This Changelog adheres to the [Semantic Versioning]("https://semver.org/")
 
+## [v0.6.8](https://github.com/ifunny-co/ifunny-api-types/compare/v0.6.7...v0.6.8) - 2022-08-25
+
+### Features
+
+*  Add InvalidEmail and EmailExists errors @MakeShiftArtist ([`6336ad7`](https://github.com/ifunny-co/ifunny-api-types/commit/6336ad739d3589a2d22740919a6ba1b16e505742))
+*  Add RESTAPISignUpSuccess @MakeShiftArtist ([`b149416`](https://github.com/ifunny-co/ifunny-api-types/commit/b14941614a9681a986e631a43646dd2cc91c4caf))
+
+
+
+### Documentation
+
+*  Update CHANGELOG.md @MakeShiftArtist ([`d1187e9`](https://github.com/ifunny-co/ifunny-api-types/commit/d1187e9c203d26129e2ac8a4a4991a87fff4c878))
+
+
 ## [v0.6.7](https://github.com/ifunny-co/ifunny-api-types/compare/v0.6.6...v0.6.7) - 2022-08-25
 
 
