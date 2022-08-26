@@ -7,7 +7,7 @@
 	"scripts": {
 		"build-js": "tsc",
 		"build": "npm run build-js",
-		"changelog": "auto-changelog -p  && git add CHANGELOG.md && git commit -m \"Doc: Update CHANGELOG.md\"",
+		"changelog": "auto-changelog -p  && git add CHANGELOG.md && git commit -m \"Update CHANGELOG.md\"",
 		"update": "npx npm-check-updates -u && npm install",
 		"test": "tsc --noEmit",
 		"link": "npm run build && npm link"
