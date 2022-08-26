@@ -24,6 +24,21 @@ export interface RESTAPICaptchaError extends RESTAPIError {
 }
 
 /**
+ * Returned when an email is invalid
+ */
+export interface RESTAPIInvalidEmailError {
+	error: IFUNNY_ERRORS.INVALID_EMAIL;
+	error_decription: string;
+	status: 403;
+}
+
+export interface RESTAPIEmailExistsError {
+	error: IFUNNY_ERRORS.EMAIL_EXISTS;
+	error_description: string;
+	status: 403;
+}
+
+/**
  * Known captcha types
  */
 enum CaptchaTypes {
@@ -36,7 +51,11 @@ type CaptchaType = `${CaptchaTypes}`;
 /**
  * Returns when the request throws an error.
  */
-export type RESTAPIErrorResponse = RESTAPICaptchaError | RESTAPIError;
+export type RESTAPIErrorResponse =
+	| RESTAPICaptchaError
+	| RESTAPIInvalidEmailError
+	| RESTAPIEmailExistsError
+	| RESTAPIError;
 
 /**
  * Possible iFunny Errors
@@ -53,6 +72,7 @@ export enum IFUNNY_ERRORS {
 	BAD_REQUEST = "bad_request",
 	CAPTCHA_REQUIRED = "captcha_required",
 	CONTENT_WAS_DELETED = "content_was_deleted",
+	EMAIL_EXISTS = "email_exists",
 	EMAIL_NOT_CONFIRMED = "email_not_confirmed",
 	ENTITY_ABUSED = "entity_abused",
 	FORBIDDEN_FOR_BANNED = "forbidden_for_banned",
