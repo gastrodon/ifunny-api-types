@@ -28,7 +28,7 @@ export interface RESTAPICaptchaError extends RESTAPIError {
  */
 export interface RESTAPIInvalidEmailError {
 	error: IFUNNY_ERRORS.INVALID_EMAIL;
-	error_decription: string;
+	error_description: string;
 	status: 403;
 }
 
