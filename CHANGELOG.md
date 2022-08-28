@@ -2,6 +2,22 @@
 > All notable changes to this project will be documented in this file.
 > This Changelog adheres to the [Semantic Versioning]("https://semver.org/")
 
+## [v0.7.2](https://github.com/ifunny-co/ifunny-api-types/compare/v0.7.1...v0.7.2) - 2022-08-28
+
+### Features
+
+*  Refactored util/errors into errors/ @MakeShiftArtist ([`e5e709d`](https://github.com/ifunny-co/ifunny-api-types/commit/e5e709d3b6880ee8817a95314d2e3668497634c8))
+
+### Fixes
+
+*  Change VIEWED_FROM to ACTION_LOCATION @MakeShiftArtist ([`94ae53e`](https://github.com/ifunny-co/ifunny-api-types/commit/94ae53ebc57a20a8bfc9d1dd3cecac4401f0e843))
+
+
+### Documentation
+
+*  Update CHANGELOG.md @MakeShiftArtist ([`3a58949`](https://github.com/ifunny-co/ifunny-api-types/commit/3a589494c5a9a8853cc8c46604f465f3b887bf54))
+
+
 ## [v0.7.1](https://github.com/ifunny-co/ifunny-api-types/compare/v0.7.0...v0.7.1) - 2022-08-25
 
 
