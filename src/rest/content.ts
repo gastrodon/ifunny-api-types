@@ -49,9 +49,16 @@ export enum REPORT_TYPE {
 }
 
 /**
- * Where the post was viewed from
+ * Possible report reasons
  */
-export enum VIEWED_FROM {
+export type APIReportReason = `${REPORT_TYPE}`;
+
+/**
+ * Where an action was completed
+ * @example
+ * PUT /v4/reads/:contentId?from=:ACTION_LOCATION
+ */
+export enum ACTION_LOCATION {
 	CHANNEL = "channel",
 	COLLECTIVE = "coll",
 	FEATURES = "feat",
@@ -61,3 +68,8 @@ export enum VIEWED_FROM {
 	SUBS = "subs",
 	TAG = "tag",
 }
+
+/**
+ * Possible `from` locations
+ */
+export type APIActionLocation = `${ACTION_LOCATION}`;
