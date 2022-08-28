@@ -1,61 +1,21 @@
 /**
- * Thrown when trying to login with invalid email or password
+ * Thrown when the response is not in the 200 range
  */
 export interface RESTAPIError {
+	/**
+	 * The error returned by the API
+	 */
 	error: RESTAPIiFunnyError;
+	/**
+	 * Brief description of the error
+	 */
 	error_description: string;
+	/**
+	 * Status code of the error
+	 */
 	status: 400 | 401 | 403 | 404 | 500;
 }
-
-/**
- * This is thrown when you need to solve a captcha to complete the request.
- */
-export interface RESTAPICaptchaError extends RESTAPIError {
-	error: IFUNNY_ERRORS.CAPTCHA_REQUIRED;
-	error_description: "Human verification is required";
-	data: {
-		/**
-		 * Open this url in any browser, solve it, then make the exact same request again.
-		 */
-		captcha_url: string;
-		type: CaptchaType;
-	};
-	status: 403;
-}
-
-/**
- * Returned when an email is invalid
- */
-export interface RESTAPIInvalidEmailError {
-	error: IFUNNY_ERRORS.INVALID_EMAIL;
-	error_description: string;
-	status: 403;
-}
-
-export interface RESTAPIEmailExistsError {
-	error: IFUNNY_ERRORS.EMAIL_EXISTS;
-	error_description: string;
-	status: 403;
-}
-
-/**
- * Known captcha types
- */
-enum CaptchaTypes {
-	FUN_CAPTCHA = "fun_captcha",
-	RECAPTCHA = "recaptcha",
-}
-
-type CaptchaType = `${CaptchaTypes}`;
-
-/**
- * Returns when the request throws an error.
- */
-export type RESTAPIErrorResponse =
-	| RESTAPICaptchaError
-	| RESTAPIInvalidEmailError
-	| RESTAPIEmailExistsError
-	| RESTAPIError;
+export default RESTAPIError;
 
 /**
  * Possible iFunny Errors

@@ -1,4 +1,4 @@
-import { RESTAPIErrorResponse } from "../utils/errors";
+import { RESTAPIErrorResponse } from "../errors/error";
 
 export type RESTAPIOauth2Login = RESTAPIOauth2LoginSuccess | RESTAPIOauth2LoginError;
 
@@ -12,7 +12,9 @@ export interface RESTAPIOauth2LoginSuccess {
 	 */
 	token_type: TOKEN_TYPES.BEARER;
 	/**
-	 * ? This Timestamp is in seconds, which is equivilent to 10 years
+	 * How long until the token expires\
+	 * Equivilent to `10 years`\
+	 * ? In seconds
 	 */
 	expires_in: 315360000;
 }
