@@ -38,7 +38,7 @@ export class Endpoints {
 	static user(query?: string, byNick: boolean = false): string {
 		let users = "/users";
 		if (!query) return users;
-		return users + (byNick ? `/by_nick/${query}` : `/query`);
+		return users + (byNick ? `/by_nick/${query}` : `/${query}`);
 	}
 
 	/**
