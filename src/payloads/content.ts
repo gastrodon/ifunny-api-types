@@ -8,15 +8,15 @@ import { HexCode, Size, Timestamp } from "../utils/util";
  */
 export enum CONTENT_VISIBILITY {
 	/**
-	 * Anyone can see the post
+	 * Anyone can see the Content
 	 */
 	PUBLIC = "public",
 	/**
-	 * Post is hidden from collective and explore
+	 * Content is hidden from collective and explore
 	 */
 	SUBSCRIBERS = "subscribers",
 	/**
-	 * Only the creator can see the post
+	 * Only the creator can see the Content
 	 */
 	CLOSED = "closed",
 }
@@ -28,15 +28,15 @@ export type APIContentVisibility = `${CONTENT_VISIBILITY}`;
  */
 export enum SHOT_STATUS {
 	/**
-	 * The content was approved for upload and comment attachments are enabled
+	 * The Content was approved for upload and comment attachments are enabled
 	 */
 	APPROVED = "approved",
 	/**
-	 * The content was deleted by the automoderation system
+	 * The Content was deleted by the automoderation system
 	 */
 	HARD_SHOT = "hardShot",
 	/**
-	 * Post was approved for upload, but can't be used in comments
+	 * Content was approved for upload, but can't be used in comments
 	 */
 	SHOT = "shot",
 }
@@ -47,12 +47,12 @@ export enum SHOT_STATUS {
 export type APIContentShotStatus = `${SHOT_STATUS}`;
 
 /**
- * All currently known post types
+ * All currently known Content types
  */
 export enum CONTENT_TYPE {
 	// ? Videos
 	/**
-	 * Most common video post type\
+	 * Most common video Content type\
 	 * Data key: `video_clip`
 	 */
 	VIDEO_CLIP = "video_clip",
@@ -73,12 +73,12 @@ export enum CONTENT_TYPE {
 	COUB = "coub",
 	// * Gifs
 	/**
-	 * A Gif post\
+	 * A Gif Content\
 	 * Data key: `gif`
 	 */
 	GIF = "gif",
 	/**
-	 * A Gif post with a custom caption\
+	 * A Gif Content with a custom caption\
 	 * Data key: `gif`
 	 */
 	GIF_CAPTION = "gif_caption",
@@ -105,19 +105,19 @@ export enum CONTENT_TYPE {
 	COMICS = "comics",
 	// ? Special / Unknown
 	/**
-	 * An interactive post from iFunny
+	 * An interactive Content from iFunny
 	 * Data key: `app` (Unknown due to deprecation)
-	 * @deprecated These posts have been removed from the database and will not be available
+	 * @deprecated This Content type has been removed from the database and will not be available
 	 */
 	APP = "app",
 	/**
-	 * Unknown post type\
+	 * Unknown Content type\
 	 * Data key: `old` (Unknown due to deprecation)\
 	 * TODO: Document what CONTENT_TYPE.OLD is
 	 */
 	OLD = "old",
 	/**
-	 * Unknown post type\
+	 * Unknown Content type\
 	 * Data key: `dem` (Unknown due to deprecation)\
 	 * TODO: Document what CONTENT_TYPE.DEM is
 	 */
@@ -125,31 +125,31 @@ export enum CONTENT_TYPE {
 }
 
 /**
- * Possible content types
+ * Possible Content types
  */
 export type APIContentType = `${CONTENT_TYPE}`;
 
-// TODO: Discover more post states
+// TODO: Discover more Content states
 export enum CONTENT_STATE {
 	/**
-	 * The post is published
+	 * The Content is published
 	 */
 	PUBLISHED = "published",
 	/**
-	 * A post that was scheduled to be published later
+	 * Content that was scheduled to be published later
 	 */
 	DELAYED = "delayed",
 }
 
 /**
- * Possible post states
+ * Possible Content states
  */
 export type APIContentState = `${CONTENT_STATE}`;
 
 // * Sub objects
 
 /**
- * The creator object for a post
+ * The creator object for the Content
  */
 export interface APIContentCreator
 	extends Pick<
@@ -182,21 +182,21 @@ export interface APIContentCreator
 export type APIContentAuthor = APIContentCreator;
 
 /**
- * Num object for Post Creator.\
- * total_posts is in the creator object for some reason
+ * Num object for Content Creator.\
+ * ? `total_posts` is in the creator object for some reason
  */
 export type APIContentCreatorNum = Pick<APIUserNums, "subscribers" | "subscriptions">;
 
 /**
- * Numbers attatched to a post
+ * Numbers attached to the Content
  */
 export interface APIContentNums {
 	/**
-	 * The amount of smiles the post has
+	 * The amount of smiles the Content has
 	 */
 	smiles: number;
 	/**
-	 * The amount of unsmiles the post has
+	 * The amount of unsmiles the Content has
 	 */
 	unsmiles: number;
 	/**
@@ -205,25 +205,25 @@ export interface APIContentNums {
 	 */
 	guest_smiles: number;
 	/**
-	 * How many comments are on the post
+	 * How many comments are on the Content
 	 */
 	comments: number;
 	/**
-	 * How many views the post has
+	 * How many views the Content has
 	 */
 	views: number;
 	/**
-	 * How many republishes the post has
+	 * How many republishes the Content has
 	 */
 	republished: number;
 	/**
-	 * How many shares the post has
+	 * How many shares the Content has
 	 */
 	shares: number;
 }
 
 /**
- * Copyright data for a post.
+ * Copyright data for the Content
  */
 export interface APIContentCopyright {
 	/**
@@ -304,12 +304,12 @@ export interface APIContentThumbnail {
 // ? For internal use
 interface WebP {
 	/**
-	 * webp format url of the post
+	 * webp format url of the Content
 	 */
 	webp_url: string;
 }
 
-// * Specific post objects
+// * Specific Content objects
 
 // TODO: Find more VIDEO_SOURCE_TYPES
 export enum VIDEO_SOURCE {
@@ -378,7 +378,7 @@ export interface APIVineContentData {
 // ? Pictures
 export interface APICaptionContentData {
 	/**
-	 * The caption of the post
+	 * The caption of the Content
 	 */
 	caption_text: string;
 }
@@ -389,15 +389,15 @@ export type APIPicContentData = WebP;
 // ? Gifs
 export interface APIGifContentData {
 	/**
-	 * JPEG url of the post
+	 * JPEG url of the Content
 	 */
 	screen_url: string;
 	/**
-	 * How many bytes the post is
+	 * How many bytes the Content is
 	 */
 	bytes: number;
 	/**
-	 * Url of the post in MP4 format
+	 * Url of the Content in MP4 format
 	 */
 	mp4_url: string;
 	/**
@@ -416,110 +416,114 @@ export interface UnknownContentData extends JSON {}
  */
 export interface APIContentBase {
 	/**
-	 * Unique id of the post.\
+	 * Unique id of the Content.\
 	 * Typically 9 characters long
 	 */
 	id: string;
 	/**
-	 * The type of the post.
+	 * The type of the Content
 	 */
 	type: APIContentType;
 	/**
-	 * Content url of the post.
+	 * Content url of the Content
 	 */
 	url: string;
 	/**
-	 * If the post uses the old watermark or the new one
+	 * If the Content uses the old watermark or the new one
 	 */
 	old_watermark: boolean;
 	/**
 	 * In-app share url.
 	 * @example
-	 * `https://ifunny.co/picture/${post.id}`
-	 * `https://ifunny.co/video/${post.id}`
+	 * `https://ifunny.co/picture/${content.id}`
+	 * `https://ifunny.co/video/${content.id}`
 	 */
 	link: string;
 	/**
-	 * The title of the post
+	 * The title of the Content
 	 */
 	title: string;
 	/**
-	 * Fixed title of the post
+	 * Fixed title of the Content
 	 * @example
-	 * `Gif memes ${post.id} by ${post.creator.nick}`
-	 * `Picture memes ${post.id} by ${post.creator.nick}: ${post.num.comments} comments`
+	 * `Gif memes ${content.id} by ${content.creator.nick}`
+	 * `Picture memes ${content.id} by ${content.creator.nick}: ${content.num.comments} comments`
 	 */
 	fixed_title: string;
 	/**
-	 * Array of tags on the post
+	 * Array of tags on the Content
 	 */
 	tags: string[];
 	/**
-	 * The publish state of the post
+	 * The publish state of the Content
 	 */
 	state: APIContentState;
 	/**
-	 * {@link Timestamp} of when the post was created
+	 * {@link Timestamp} of when the Content was created
 	 */
 	date_create: Timestamp;
 	/**
-	 * {@link Timestamp} of when the Post was published
+	 * {@link Timestamp} of when the Content was published
 	 */
 	publish_at: Timestamp;
 	/**
-	 * Is the post smiled by the Client
+	 * Is the Content smiled by the Client
 	 */
 	is_smiled: boolean;
 	/**
-	 * Is the post unsmiled by the Client
+	 * Is the Content unsmiled by the Client
 	 */
 	is_unsmiled: boolean;
 	/**
-	 * Is the post removed by iFunny
+	 * Was the Content removed by iFunny
 	 */
 	is_abused: boolean;
 	/**
-	 * Is the post featured by iFunny
+	 * Is the Content featured
 	 */
 	is_featured: boolean;
 	/**
-	 * Is the post republished by the Client
+	 * Is the Content republished by the Client
 	 */
 	is_republished: boolean;
 	/**
-	 * Is the post pinned by the creator
+	 * Is the Content pinned by the creator
 	 */
 	is_pinned: boolean;
 	/**
-	 * Background color of the post.
+	 * Background color of the Content.
 	 */
 	bg_color: HexCode;
 	/**
-	 * The {@link APIContentThumbnail thumbnail} of the post
+	 * The {@link APIContentThumbnail thumbnail} of the Content
 	 */
 	thumb: APIContentThumbnail;
 	/**
-	 * A post's {@link APIContentCopyright copyright} data
+	 * The Content's {@link APIContentCopyright copyright} data
 	 */
 	copyright: APIContentCopyright;
 	/**
-	 * The {@link APIContentNums numbers} on the post.
+	 * The {@link APIContentNums numbers} on the Content
 	 */
 	num: APIContentNums;
 	/**
-	 * The author of the post
+	 * The author of the Content
 	 */
 	creator?: APIContentCreator;
 	/**
-	 * Size of the post
+	 * Size of the Content
 	 */
 	size: Size;
+	/**
+	 * Timestamp of when the Content was featured if it was featured
+	 */
+	issue_at?: Timestamp;
 	/**
 	 * Url of the original source
 	 */
 	traceback_url?: string;
 	/**
-	 * The post's visibility
+	 * The Content's visibility
 	 */
 	visibility: APIContentVisibility;
 	/**
@@ -531,12 +535,12 @@ export interface APIContentBase {
 	 */
 	fast_start: boolean;
 	/**
-	 * The risk level of the post
+	 * The risk level of the Content
 	 */
 	risk: number;
 	/**
 	 * @example
-	 * `https://ifunny.co/picture/${post.id}`
+	 * `https://ifunny.co/picture/${content.id}`
 	 */
 	canonical_url: string;
 	/**
@@ -544,11 +548,11 @@ export interface APIContentBase {
 	 */
 	ocr_text?: string;
 	/**
-	 * Can the post be boosted still
+	 * Can the Content still be boosted
 	 */
 	can_be_boosted: boolean;
 	/**
-	 * The source of the post if it's a republish
+	 * The source of the Content if it's a republish
 	 */
 	source?: APIContentSource;
 }
@@ -605,13 +609,13 @@ export interface APIUnknownContent extends APIContentBase {
 }
 
 /**
- * The original source of the content
+ * The original source of the Content
  */
 export type APIContentSource = Partial<APIContent> &
 	Pick<APIContent, "id" | "date_create">;
 
 /**
- * Any possible content type
+ * Any possible Content type
  */
 export type APIContent =
 	| APIContentVideo
@@ -620,7 +624,7 @@ export type APIContent =
 	| APIContentSpecial;
 
 /**
- * All video/mp4 content types
+ * All video/mp4 Content types
  */
 export type APIContentVideo =
 	| APICoubContent
@@ -629,7 +633,7 @@ export type APIContentVideo =
 	| APIVineContent;
 
 /**
- * All picture/jpg content types
+ * All picture/jpg Content types
  */
 export type APIContentPic =
 	| APICaptionContent
@@ -638,12 +642,12 @@ export type APIContentPic =
 	| APIMemeContent;
 
 /**
- * All Gif content types
+ * All Gif Content types
  */
 export type APIContentGif = APIGifContent | APIGifCaptionContent;
 
 /**
- * All currently undocumented content types. Once documented, these may move into the appropriate content types above.\
+ * All currently undocumented Content types. Once documented, these may move into the appropriate Content types above.\
  * ? Currently: 'dem', 'old', 'app'
  */
 export type APIContentSpecial = APIUnknownContent;
