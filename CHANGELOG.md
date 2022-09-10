@@ -2,6 +2,16 @@
 > All notable changes to this project will be documented in this file.
 > This Changelog adheres to the [Semantic Versioning]("https://semver.org/")
 
+## [v0.7.6](https://github.com/ifunny-co/ifunny-api-types/compare/v0.7.5...v0.7.6) - 2022-09-10
+
+
+### Fixes
+
+*  Exported WebP interface @MakeShiftArtist ([`e9b0467`](https://github.com/ifunny-co/ifunny-api-types/commit/e9b0467b96d1f8cf685c1442a899724cd3551701))
+
+
+
+
 ## [v0.7.5](https://github.com/ifunny-co/ifunny-api-types/compare/v0.7.4...v0.7.5) - 2022-09-10
 
 
