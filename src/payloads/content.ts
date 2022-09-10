@@ -301,8 +301,10 @@ export interface APIContentThumbnail {
 	proportional_size: Size;
 }
 
-// ? For internal use
-interface WebP {
+/**
+ * WebP information. created to prevent code duplication
+ */
+export interface WebP {
 	/**
 	 * webp format url of the Content
 	 */
