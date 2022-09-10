@@ -586,7 +586,7 @@ export interface APIComicsContent extends APIContentBase {
 }
 export interface APIMemeContent extends APIContentBase {
 	type: CONTENT_TYPE.MEME;
-	meme: APIMemeContentData;
+	mem: APIMemeContentData;
 }
 export interface APIPicContent extends APIContentBase {
 	type: CONTENT_TYPE.PIC;
