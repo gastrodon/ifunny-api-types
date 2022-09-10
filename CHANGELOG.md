@@ -2,6 +2,16 @@
 > All notable changes to this project will be documented in this file.
 > This Changelog adheres to the [Semantic Versioning]("https://semver.org/")
 
+## [v0.7.5](https://github.com/ifunny-co/ifunny-api-types/compare/v0.7.4...v0.7.5) - 2022-09-10
+
+
+### Fixes
+
+*  Removed 'e' from APIMemeContent.meme @MakeShiftArtist ([`7b6c87c`](https://github.com/ifunny-co/ifunny-api-types/commit/7b6c87c4ba5c4627048b12b400167128cf9b8670))
+
+
+
+
 ## [v0.7.4](https://github.com/ifunny-co/ifunny-api-types/compare/v0.7.3...v0.7.4) - 2022-09-05
 
 
