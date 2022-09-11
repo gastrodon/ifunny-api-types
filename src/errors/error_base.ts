@@ -15,6 +15,7 @@ export interface RESTAPIError {
 	 */
 	status: 400 | 401 | 403 | 404 | 500;
 }
+
 export default RESTAPIError;
 
 /**
@@ -40,9 +41,11 @@ export enum IFUNNY_ERRORS {
 	INVALID_CLIENT = "invalid_client",
 	INVALID_EMAIL = "invalid_email",
 	INVALID_GRANT = "invalid_grant",
+	NOT_FOUND = "not_found",
 	NOT_REPUBLISHED = "not_republished",
 	NOT_SMILED = "not_smiled",
 	NOT_UNSMILED = "not_unsmiled",
+	PERMISSION_DENIED = "permission denied",
 	PINNED_LIMIT_EXCEEDED = "profile_pins_to_many_pins_error",
 	PUBLISHING_TIMEOUT = "publishing_timeout",
 	QUERY_TOO_SHORT = "query_too_short",

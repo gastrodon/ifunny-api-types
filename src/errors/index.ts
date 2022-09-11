@@ -4,4 +4,7 @@ export * from "./email_exists";
 export * from "./error_base";
 export * from "./error";
 export * from "./invalid_email";
+export * from "./invalid_grant";
+export * from "./not_found";
+export * from "./permission_denied";
 export * from "./unauthorized";
