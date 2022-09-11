@@ -3,6 +3,7 @@ import { RESTAPIErrorBadRequest } from "./bad_request";
 import { RESTAPIErrorCaptchaRequired } from "./captcha_required";
 import { RESTAPIErrorEmailExists } from "./email_exists";
 import { RESTAPIErrorInvalidEmail } from "./invalid_email";
+import { RESTAPIErrorUnauthorized } from "./unauthorized";
 
 /**
  * Returns when the request throws an error.\
@@ -21,7 +22,8 @@ export type RESTAPIErrorResponse =
 	| RESTAPIErrorBadRequest
 	| RESTAPIErrorCaptchaRequired
 	| RESTAPIErrorEmailExists
-	| RESTAPIErrorInvalidEmail;
+	| RESTAPIErrorInvalidEmail
+	| RESTAPIErrorUnauthorized;
 
 /**
  * Use this if you don't know the error being thrown or don't want full intellisense support
