@@ -432,6 +432,19 @@ export interface UnknownContentData extends JSON {}
  * JSON data of an iFunny Post
  */
 export interface APIContentBase {
+	gif?: APIGifCaptionContentData | APIGifContentData;
+	coub?: APICoubContentData;
+	video?: APIVideoContentData;
+	video_clip?: APIVideoClipContentData;
+	vine?: APIVineContentData;
+	pic?: APIPicContentData;
+	mem?: APIMemeContentData;
+	comics?: APIComicsContentData;
+	caption?: APICaptionContentData;
+	app?: unknown;
+	dem?: unknown;
+	old?: unknown;
+
 	/**
 	 * Unique id of the Content.\
 	 * Typically 9 characters long
