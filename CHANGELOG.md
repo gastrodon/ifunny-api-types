@@ -2,7 +2,17 @@
 > All notable changes to this project will be documented in this file.
 > This Changelog adheres to the [Semantic Versioning]("https://semver.org/")
 
-## [v0.7.13](https://github.com/ifunny-co/ifunny-api-types/compare/v0.7.12...v0.7.13) - 2022-09-11
+## [v0.7.14](https://github.com/ifunny-co/ifunny-api-types/compare/v0.7.13...v0.7.14) - 2022-09-11
+
+
+### Fixes
+
+*  Fixed endpoints for nicks and emails @MakeShiftArtist ([`da4576e`](https://github.com/ifunny-co/ifunny-api-types/commit/da4576ee40a79f6377fe9ebae6ffb3a9b092ab69))
+
+
+
+
+## [v0.7.13](https://github.com/ifunny-co/ifunny-api-types/compare/v0.7.12...v0.7.13) - 2022-09-10
 
 
 ### Fixes
