@@ -10,13 +10,14 @@ export class Endpoints {
 	static readonly subscriptionFeed = "/timelines/home";
 	static readonly timelines = "/timelines";
 	static readonly token = "/oauth2/token";
-
-	static readonly myComments = "users/my/comments";
-	static readonly chatInvites = "users/my/chat_invitations";
+	static readonly myComments = "/users/my/comments";
+	static readonly chatInvites = "/users/my/chat_invitations";
 	static readonly mySmiles = "/users/my/content_smiles";
-	static readonly myAppeals = "users/my/appeals";
-	static readonly unreadChatMessages = "users/my/unread_chat_messages";
-	static readonly myNews = "news/my";
+	static readonly myAppeals = "/users/my/appeals";
+	static readonly unreadChatMessages = "/users/my/unread_chat_messages";
+	static readonly myNews = "/news/my";
+	static readonly nicksAvailable = "/nicks_available";
+	static readonly emailsAvailable = "/emails_available";
 
 	/**
 	 * @example
