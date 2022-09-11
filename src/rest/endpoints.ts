@@ -16,8 +16,8 @@ export class Endpoints {
 	static readonly myAppeals = "/users/my/appeals";
 	static readonly unreadChatMessages = "/users/my/unread_chat_messages";
 	static readonly myNews = "/news/my";
-	static readonly nicksAvailable = "/nicks_available";
-	static readonly emailsAvailable = "/emails_available";
+	static readonly nicksAvailable = "/users/nicks_available";
+	static readonly emailsAvailable = "/users/emails_available";
 
 	/**
 	 * @example
