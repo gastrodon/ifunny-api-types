@@ -2,6 +2,16 @@
 > All notable changes to this project will be documented in this file.
 > This Changelog adheres to the [Semantic Versioning]("https://semver.org/")
 
+## [v0.7.10](https://github.com/ifunny-co/ifunny-api-types/compare/v0.7.9...v0.7.10) - 2022-09-10
+
+### Features
+
+*  Add invalid_grant, not_found, and permission_denied errors @MakeShiftArtist ([`57d0f7a`](https://github.com/ifunny-co/ifunny-api-types/commit/57d0f7a89af5eef0a26af395e920ddfd994e0b63))
+
+
+
+
+
 ## [v0.7.9](https://github.com/ifunny-co/ifunny-api-types/compare/v0.7.8...v0.7.9) - 2022-09-10
 
 ### Features
