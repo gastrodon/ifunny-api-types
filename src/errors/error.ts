@@ -22,7 +22,6 @@ import RESTAPIErrorUnauthorized from "./unauthorized";
  * }
  */
 export type RESTAPIErrorResponse =
-	| RESTAPIError
 	| RESTAPIErrorBadRequest
 	| RESTAPIErrorCaptchaRequired
 	| RESTAPIErrorEmailExists
