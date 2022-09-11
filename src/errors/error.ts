@@ -1,9 +1,12 @@
-import { RESTAPIError } from "./error_base";
-import { RESTAPIErrorBadRequest } from "./bad_request";
-import { RESTAPIErrorCaptchaRequired } from "./captcha_required";
-import { RESTAPIErrorEmailExists } from "./email_exists";
-import { RESTAPIErrorInvalidEmail } from "./invalid_email";
-import { RESTAPIErrorUnauthorized } from "./unauthorized";
+import RESTAPIError from "./error_base";
+import RESTAPIErrorBadRequest from "./bad_request";
+import RESTAPIErrorCaptchaRequired from "./captcha_required";
+import RESTAPIErrorEmailExists from "./email_exists";
+import RESTAPIErrorInvalidEmail from "./invalid_email";
+import RESTAPIErrorInvalidGrant from "./invalid_grant";
+import RESTAPIErrorNotFound from "./not_found";
+import RESTAPIErrorPermissionDenied from "./permission_denied";
+import RESTAPIErrorUnauthorized from "./unauthorized";
 
 /**
  * Returns when the request throws an error.\
@@ -19,10 +22,14 @@ import { RESTAPIErrorUnauthorized } from "./unauthorized";
  * }
  */
 export type RESTAPIErrorResponse =
+	| RESTAPIError
 	| RESTAPIErrorBadRequest
 	| RESTAPIErrorCaptchaRequired
 	| RESTAPIErrorEmailExists
 	| RESTAPIErrorInvalidEmail
+	| RESTAPIErrorInvalidGrant
+	| RESTAPIErrorNotFound
+	| RESTAPIErrorPermissionDenied
 	| RESTAPIErrorUnauthorized;
 
 /**
