@@ -409,6 +409,21 @@ export interface APIGifContentData {
 }
 export type APIGifCaptionContentData = APIGifContentData & APICaptionContentData;
 
+/**
+ * The content data for content from Content.pic, Content.video_clip, etc.
+ */
+export type APIContentData =
+	| APIGifContentData
+	| APIGifCaptionContentData
+	| APICoubContentData
+	| APIVideoClipContentData
+	| APIVideoContentData
+	| APIVineContentData
+	| APICaptionContentData
+	| APIComicsContentData
+	| APIMemeContentData
+	| APIPicContentData;
+
 // ? Special/Unknown
 export interface UnknownContentData extends JSON {}
 
