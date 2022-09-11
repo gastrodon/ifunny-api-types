@@ -2,6 +2,16 @@
 > All notable changes to this project will be documented in this file.
 > This Changelog adheres to the [Semantic Versioning]("https://semver.org/")
 
+## [v0.7.8](https://github.com/ifunny-co/ifunny-api-types/compare/v0.7.7...v0.7.8) - 2022-09-10
+
+
+### Fixes
+
+*  Add data fields to APIContentBase @MakeShiftArtist ([`b4718d1`](https://github.com/ifunny-co/ifunny-api-types/commit/b4718d11887b6f183bda84a9bb5e9c9f934aeced))
+
+
+
+
 ## [v0.7.7](https://github.com/ifunny-co/ifunny-api-types/compare/v0.7.6...v0.7.7) - 2022-09-10
 
 
