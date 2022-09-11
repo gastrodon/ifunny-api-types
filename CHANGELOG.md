@@ -2,6 +2,16 @@
 > All notable changes to this project will be documented in this file.
 > This Changelog adheres to the [Semantic Versioning]("https://semver.org/")
 
+## [v0.7.7](https://github.com/ifunny-co/ifunny-api-types/compare/v0.7.6...v0.7.7) - 2022-09-10
+
+
+### Fixes
+
+*  Add APContentData type @MakeShiftArtist ([`5491446`](https://github.com/ifunny-co/ifunny-api-types/commit/549144689d9a8c4d6ea5c3f5ae8e8ae1f25ee298))
+
+
+
+
 ## [v0.7.6](https://github.com/ifunny-co/ifunny-api-types/compare/v0.7.5...v0.7.6) - 2022-09-10
 
 
