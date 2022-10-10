@@ -5,14 +5,15 @@
 	"main": "dist/index.js",
 	"types": "types",
 	"scripts": {
-		"build-js": "tsc",
-		"build": "npm run build-js",
-		"changelog": "auto-changelog -p && git add CHANGELOG.md && git commit -m \"Update CHANGELOG.md\"",
-		"update": "npx npm-check-updates -u && npm install",
 		"test": "tsc --noEmit",
-		"link": "npm run build && npm link",
-		"version": "npm run changelog && npm run build",
-		"push": "git push && npm run build && npm publish"
+		"clean": "rm -r -f ./dist && rm -r -f ./types",
+		"build": "tsc",
+		"rebuild": "npm run clean && npm run build",
+		"update": "npx npm-check-updates -u && npm install",
+		"link": "npm run rebuild && npm link",
+		"version": "npm run changelog && npm run rebuild",
+		"push": "npm run rebuild && git push && npm publish",
+		"changelog": "auto-changelog -p && git add CHANGELOG.md && git commit -m \"Update CHANGELOG.md\""
 	},
 	"repository": {
 		"type": "git",
