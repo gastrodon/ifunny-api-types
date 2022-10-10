@@ -2,6 +2,17 @@
 > All notable changes to this project will be documented in this file.
 > This Changelog adheres to the [Semantic Versioning]("https://semver.org/")
 
+## [v0.8.4](https://github.com/ifunny-co/ifunny-api-types/compare/v0.8.3...v0.8.4) - 2022-10-10
+
+
+### Fixes
+
+*  Add missing RESTAPIContentResponse @makeshiftartist ([`ba01629`](https://github.com/ifunny-co/ifunny-api-types/commit/ba01629ecb87e143d174cf88e6dbd869538e40c0))
+*  Add `ftag` property @makeshiftartist ([`5a975af`](https://github.com/ifunny-co/ifunny-api-types/commit/5a975afdf488b864d669528213df7214c5044d24))
+
+
+
+
 ## [v0.8.3](https://github.com/ifunny-co/ifunny-api-types/compare/v0.8.2...v0.8.3) - 2022-10-10
 
 
