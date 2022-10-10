@@ -2,7 +2,17 @@
 > All notable changes to this project will be documented in this file.
 > This Changelog adheres to the [Semantic Versioning]("https://semver.org/")
 
-## [v0.8.2](https://github.com/ifunny-co/ifunny-api-types/compare/v0.8.1...v0.8.2) - 2022-10-10
+## [v0.8.3](https://github.com/ifunny-co/ifunny-api-types/compare/v0.8.2...v0.8.3) - 2022-10-10
+
+
+### Fixes
+
+*  Fix typings in ContentCreator & ContentSource @makeshiftartist ([`0f13d43`](https://github.com/ifunny-co/ifunny-api-types/commit/0f13d43430289324514027b5779b264320a4ed10))
+
+
+
+
+## [v0.8.2](https://github.com/ifunny-co/ifunny-api-types/compare/v0.8.1...v0.8.2) - 2022-10-09
 
 
 ### Fixes
