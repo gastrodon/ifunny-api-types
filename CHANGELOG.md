@@ -2,7 +2,14 @@
 > All notable changes to this project will be documented in this file.
 > This Changelog adheres to the [Semantic Versioning]("https://semver.org/")
 
-## 0.8.0 - 2022-10-10
+## [v0.8.1](https://github.com/ifunny-co/ifunny-api-types/compare/v0.8.0...v0.8.1) - 2022-10-10
+
+
+
+
+
+
+## v0.8.0 - 2022-10-09
 
 ### Features
 
