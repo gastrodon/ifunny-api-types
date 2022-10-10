@@ -11,7 +11,7 @@
 		"rebuild": "npm run clean && npm run build",
 		"update": "npx npm-check-updates -u && npm install",
 		"link": "npm run rebuild && npm link",
-		"version": "npm run changelog && npm run rebuild",
+		"version": "npm run changelog",
 		"push": "npm run rebuild && git push && npm publish",
 		"changelog": "auto-changelog -p && git add CHANGELOG.md && git commit -m \"Update CHANGELOG.md\""
 	},
