@@ -164,6 +164,7 @@ export interface APIContentCreator
 		| "is_in_subscribers"
 		| "is_blocked"
 		| "nick_color"
+		| "rating"
 		| "original_nick"
 	> {
 	/**
@@ -639,10 +640,9 @@ export interface APIUnknownContent extends APIContentBase {
 }
 
 /**
- * The original source of the Content
+ * The source of the original content
  */
-export type APIContentSource = Partial<APIContent> &
-	Pick<APIContent, "id" | "date_create">;
+type APIContentSource = Pick<APIContent, "id" | "date_create" | "creator">;
 
 /**
  * Any possible Content type
