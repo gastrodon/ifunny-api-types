@@ -1,3 +1,6 @@
+import { APIContent } from "../payloads";
+import { RESTAPISuccessResponse } from "../utils";
+
 /**
  * Possible report reasons
  */
@@ -73,3 +76,9 @@ export enum ACTION_LOCATION {
  * Possible `from` locations
  */
 export type APIActionLocation = `${ACTION_LOCATION}`;
+
+/**
+ * @example
+ * GET /v4/content/:contentId
+ */
+export type RESTAPIContentResponse = RESTAPISuccessResponse<APIContent>;
