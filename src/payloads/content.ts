@@ -586,6 +586,11 @@ export interface APIContentBase {
 	 * The source of the Content if it's a republish
 	 */
 	source?: APIContentSource;
+	/**
+	 * From Tag (maybe?)\
+	 * TODO: Document ftag
+	 */
+	ftag: string;
 }
 
 // ? Videos
