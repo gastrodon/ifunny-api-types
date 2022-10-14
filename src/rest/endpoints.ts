@@ -20,6 +20,8 @@ export class Endpoints {
 	static readonly emailsAvailable = "/users/emails_available";
 
 	/**
+	 * @param query The nick or id of the user
+	 * @param byNick Whether to fetch by nick (Default: false)
 	 * @example
 	 * "/timelines/users/:userId"
 	 * "/timelines/users/by_nick/:userNick"
@@ -30,7 +32,7 @@ export class Endpoints {
 
 	/**
 	 * @param query The user id or nick
-	 * @param byNick Whether to search by nick (Default: false)
+	 * @param byNick Whether to fetch by nick (Default: false)
 	 * @example
 	 * "/users"
 	 * "/users/:userId"
@@ -86,6 +88,7 @@ export class Endpoints {
 	}
 
 	/**
+	 * @param id Id of the content if getting one
 	 * @example
 	 * "/content"
 	 * "/content/:contentId"
@@ -95,7 +98,7 @@ export class Endpoints {
 	}
 
 	/**
-	 * @param contentId The content id or array of content ids if adding to reads
+	 * @param contentId The content id
 	 * @example
 	 * "/content/:contentId/smiles"
 	 */
@@ -106,13 +109,23 @@ export class Endpoints {
 	/**
 	 * @param contentId The content id
 	 * @example
-	 * "/content/:contentId/republished"
+	 * "/content/:contentId/unsmiles"
 	 */
-	static republishes(id: string): string {
-		return this.content(id) + "/republished";
+	static unsmiles(contentId: string): string {
+		return this.content(contentId) + "/unsmiles";
 	}
 
 	/**
+	 * @param contentId The content id
+	 * @example
+	 * "/content/:contentId/republished"
+	 */
+	static republishes(contentId: string): string {
+		return this.content(contentId) + "/republished";
+	}
+
+	/**
+	 * @param contentId Id of the content
 	 * @example
 	 * "/content/:contentId/comments"
 	 */
