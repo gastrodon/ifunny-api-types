@@ -7,6 +7,7 @@ import RESTAPIErrorInvalidGrant from "./invalid_grant";
 import RESTAPIErrorNotFound from "./not_found";
 import RESTAPIErrorPermissionDenied from "./permission_denied";
 import RESTAPIErrorUnauthorized from "./unauthorized";
+import RESTAPIErrorInvalidClient from "./invalid_client";
 
 /**
  * Returns when the request throws an error.\
@@ -22,6 +23,7 @@ import RESTAPIErrorUnauthorized from "./unauthorized";
  * }
  */
 export type RESTAPIErrorResponse =
+	| RESTAPIErrorInvalidClient
 	| RESTAPIErrorBadRequest
 	| RESTAPIErrorCaptchaRequired
 	| RESTAPIErrorEmailExists

@@ -8,3 +8,4 @@ export * from "./invalid_grant";
 export * from "./not_found";
 export * from "./permission_denied";
 export * from "./unauthorized";
+export * from "./invalid_client";
