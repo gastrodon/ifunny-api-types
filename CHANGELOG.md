@@ -2,7 +2,17 @@
 > All notable changes to this project will be documented in this file.
 > This Changelog adheres to the [Semantic Versioning]("https://semver.org/")
 
-## [v0.9.0](https://github.com/ifunny-co/ifunny-api-types/compare/v0.8.4...v0.9.0) - 2022-10-14
+## [v0.9.1](https://github.com/ifunny-co/ifunny-api-types/compare/v0.9.0...v0.9.1) - 2022-10-14
+
+
+### Fixes
+
+*  Add RESTAPIStatusResponse @makeshiftartist ([`c89e265`](https://github.com/ifunny-co/ifunny-api-types/commit/c89e265fb40bd2ed0349b4a5a7f8859f6a84c18d))
+
+
+
+
+## [v0.9.0](https://github.com/ifunny-co/ifunny-api-types/compare/v0.8.4...v0.9.0) - 2022-10-13
 
 ### Features
 
