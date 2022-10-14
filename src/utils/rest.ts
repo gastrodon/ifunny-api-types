@@ -1,15 +1,11 @@
 /**
  * Returns when the request was a success
  */
-export interface RESTAPISuccessResponse<T extends unknown> {
+export interface RESTAPISuccessResponse<T extends unknown> extends RESTAPIStatusCode {
 	/**
 	 * The data returned from the API
 	 */
 	data: T;
-	/**
-	 * Typically 200 on success
-	 */
-	status: number;
 }
 
 /**
@@ -47,4 +43,11 @@ export interface RESTAPICursors {
 	 * The previous value for backwards pagination
 	 */
 	prev?: string;
+}
+
+export interface RESTAPIStatusCode {
+	/**
+	 * Typically 200 on success
+	 */
+	status: number;
 }
