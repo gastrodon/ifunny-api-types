@@ -2,6 +2,17 @@
 > All notable changes to this project will be documented in this file.
 > This Changelog adheres to the [Semantic Versioning]("https://semver.org/")
 
+## [v0.9.0](https://github.com/ifunny-co/ifunny-api-types/compare/v0.8.4...v0.9.0) - 2022-10-14
+
+### Features
+
+*  Add Endpoints.unsmiles() and improved docs @makeshiftartist ([`81cd713`](https://github.com/ifunny-co/ifunny-api-types/commit/81cd7138a820a6742d0b9597503a32eb11247583))
+*  Add errors/invalid_client.ts @makeshiftartist ([`53bec8d`](https://github.com/ifunny-co/ifunny-api-types/commit/53bec8d76097e0a5e6a5adfc2305383eff7e3a4a))
+
+
+
+
+
 ## [v0.8.4](https://github.com/ifunny-co/ifunny-api-types/compare/v0.8.3...v0.8.4) - 2022-10-10
 
 
