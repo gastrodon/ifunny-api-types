@@ -1,4 +1,4 @@
-import { APIUser, APIUserNums } from "./user";
+import { APIUserBase } from "./user";
 import { HexCode, Size, Timestamp } from "../utils/util";
 
 // * Enum types
@@ -151,42 +151,12 @@ export type APIContentState = `${CONTENT_STATE}`;
 /**
  * The creator object for the Content
  */
-export interface APIContentCreator
-	extends Pick<
-		APIUser,
-		| "id"
-		| "nick"
-		| "photo"
-		| "is_verified"
-		| "is_banned"
-		| "is_deleted"
-		| "is_in_subscriptions"
-		| "is_in_subscribers"
-		| "is_blocked"
-		| "nick_color"
-		| "rating"
-		| "original_nick"
-	> {
-	/**
-	 * Only includes subscription and subscriber count
-	 */
-	num: APIContentCreatorNum;
-	/**
-	 * Total amount of posts the creator has. For some reason this is not in the nums object for creators
-	 */
-	total_posts: number;
-}
+export type APIContentCreator = APIUserBase;
 
 /**
  * Alias for {@link APIContentCreator}
  */
 export type APIContentAuthor = APIContentCreator;
-
-/**
- * Num object for Content Creator.\
- * ? `total_posts` is in the creator object for some reason
- */
-export type APIContentCreatorNum = Pick<APIUserNums, "subscribers" | "subscriptions">;
 
 /**
  * Numbers attached to the Content

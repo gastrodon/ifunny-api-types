@@ -1,25 +1,68 @@
 import { HexCode, Size } from "../utils/util";
-
 import { APIBan } from "./ban";
 import { APIBasePayload } from "./base";
 
-export interface APIUser extends APIUserBase {
+/**
+ * Simple user type typically found in array of users
+ */
+export type APISimpleUser = Omit<APIUserBase, "rating" | "nick_color">;
+
+/**
+ * The creator object for the Content
+ */
+export interface APIUserBase
+	extends Pick<
+		APIUser,
+		| "id"
+		| "nick"
+		| "photo"
+		| "is_verified"
+		| "is_banned"
+		| "is_deleted"
+		| "is_in_subscriptions"
+		| "is_in_subscribers"
+		| "is_blocked"
+		| "nick_color"
+		| "rating"
+		| "original_nick"
+	> {
 	/**
-	 * Is the client subscribed to the user's notifications
+	 * Only includes subscription and subscriber count
 	 */
-	is_subscribed_to_updates: boolean;
+	num: APIUserNumBase;
 	/**
-	 * The user's profile photo
+	 * Total amount of posts the user has
 	 */
-	photo?: APIProfilePhoto;
+	total_posts: number;
+}
+
+/**
+ * Num object for the simple user\
+ * ? `total_posts` is not in APIUserNumBase. Try `user.total_posts`
+ */
+export type APIUserNumBase = Pick<APIUserNums, "subscribers" | "subscriptions">;
+
+/**
+ * Represents a user from iFunny
+ */
+export interface APIUser extends APIBasePayload {
 	/**
-	 * Is the user blocked by the client
+	 * User's about bio\
+	 * ? Can be an empty string
 	 */
-	is_blocked: boolean;
+	about: string;
 	/**
 	 * Did the user block the client
 	 */
 	are_you_blocked: boolean;
+	/**
+	 * Array of APIBan objects.
+	 */
+	bans: APIBan[];
+	/**
+	 * User's cover image background color {@link HexCode}
+	 */
+	cover_bg_color?: HexCode;
 	/**
 	 * User's cover image url
 	 * @example
@@ -27,34 +70,48 @@ export interface APIUser extends APIUserBase {
 	 */
 	cover_url?: string;
 	/**
-	 * User's cover image background color {@link HexCode}
+	 * User's unique id\
+	 * ? Never changes
 	 */
-	cover_bg_color?: HexCode;
+	id: string;
 	/**
-	 * Is the Client subscribed to the user
+	 * Can the Client chat with the user
 	 */
-	is_in_subscriptions: boolean;
+	is_available_for_chat: boolean;
+	/**
+	 * Is the user banned\
+	 * ! UNSAFE TO CHECK FOR ACTIVE BANS
+	 */
+	is_banned: boolean;
+	/**
+	 * Is the user blocked by the client
+	 */
+	is_blocked: boolean;
+	/**
+	 * Is the user deleted from iFunny's servers\
+	 * ? if true, many properties will be undefined
+	 */
+	is_deleted: boolean;
 	/**
 	 * Is the User subscribed to the Client
 	 */
 	is_in_subscribers: boolean;
 	/**
-	 * User's nick color\
-	 * ? Default: 55FF00
+	 * Is the Client subscribed to the user
 	 */
-	nick_color?: APINickColor;
+	is_in_subscriptions: boolean;
 	/**
-	 * The User's linked social accounts\
-	 * Twitter, Google, Facebook
+	 * Is the  user's account private
 	 */
-	social?: APIUserSocial;
-}
-
-/**
- * API Base User Payload\
- * ? All required properties
- */
-export interface APIUserBase extends APIBasePayload {
+	is_private: boolean;
+	/**
+	 * Is the client subscribed to the user's notifications
+	 */
+	is_subscribed_to_updates: boolean;
+	/**
+	 * Is the user verified on iFunny
+	 */
+	is_verified: boolean;
 	/**
 	 * The user's meme experience
 	 */
@@ -64,86 +121,64 @@ export interface APIUserBase extends APIBasePayload {
 	 */
 	messaging_privacy_status: APIUserMessagePrivacy;
 	/**
-	 * Can the Client chat with the user
-	 */
-	is_available_for_chat: boolean;
-	/**
-	 * Is the  user's account private
-	 */
-	is_private: boolean;
-	/**
-	 * Seems to always be `"1010101010101010101010101010101010101010"`
-	 */
-	messenger_token: string; // TODO: Check if this is always the same
-	/**
 	 * Does the user have access to chats
 	 */
 	messenger_active: boolean;
 	/**
-	 * Array of APIBan objects.
+	 * Seems to always be `"1010101010101010101010101010101010101010"`
 	 */
-	bans: APIBan[];
-	/**
-	 * User's inapp share url
-	 * @example
-	 * `https://ifunny.co/user/:nick`
-	 */
-	web_url: string;
-	/**
-	 * User's about bio\
-	 * ? Can be an empty string
-	 */
-	about: string;
-	/**
-	 * User's unique id\
-	 * ? Never changes
-	 */
-	id: string;
+	messenger_token: string; // TODO: Check if this is always the same
 	/**
 	 * User's unique username\
 	 * ! UNSAFE FOR USER CACHING.
 	 */
 	nick: string;
 	/**
-	 * Is the user verified on iFunny
+	 * User's nick color\
+	 * ? Default: 55FF00
 	 */
-	is_verified: boolean;
-	/**
-	 * Is the user banned\
-	 * ! UNSAFE TO CHECK FOR ACTIVE BANS
-	 */
-	is_banned: boolean;
-	/**
-	 * Is the user deleted from iFunny's servers\
-	 * ? if true, many properties will be undefined
-	 */
-	is_deleted: boolean;
+	nick_color?: APINickColor;
 	/**
 	 * User's profile stats
 	 */
 	num: APIUserNums;
+	/**
+	 * Original nick of the user\
+	 * ? Doesn't seem to change
+	 */
+	original_nick: string;
+	/**
+	 * The user's profile photo
+	 */
+	photo?: APIProfilePhoto;
 	/**
 	 * The user's rating\
 	 * ! Deprecated by iFunny
 	 */
 	rating: APIUserRating;
 	/**
-	 * Original nick of the user\
-	 * ? Should never change, but I'm not positive
+	 * The User's linked social accounts\
+	 * Twitter, Google, Facebook
 	 */
-	original_nick: string;
+	social?: APIUserAllSocials;
+	/**
+	 * User's inapp share url
+	 * @example
+	 * `https://ifunny.co/user/:nick`
+	 */
+	web_url: string;
 }
 
 /**
+ * `closed` only the user can create direct messages\
  * `public` anyone can create a direct message the user\
  * `subscribers` only subscribers can create a direct message with the user\
- * `closed` only the user can create direct messages\
  * ? Backend does not check this status on requests as of 5/28/22
  */
 export enum MESSAGE_PRIVACY {
+	CLOSED = "closed",
 	PUBLIC = "public",
 	SUBSCRIBERS = "subscribers",
-	CLOSED = "closed",
 }
 
 export type APIUserMessagePrivacy = `${MESSAGE_PRIVACY}`;
@@ -153,13 +188,9 @@ export type APIUserMessagePrivacy = `${MESSAGE_PRIVACY}`;
  */
 export interface APIMemeExperience {
 	/**
-	 * The amount of days the user has logged into iFunny
+	 * Pixel size of the badge
 	 */
-	days: number;
-	/**
-	 * The user's rank name
-	 */
-	rank: APIMemeRank;
+	badge_size: Size;
 	/**
 	 * MemeRank badge png url
 	 * @example
@@ -167,13 +198,17 @@ export interface APIMemeExperience {
 	 */
 	badge_url: string;
 	/**
-	 * Pixel size of the badge
+	 * The amount of days the user has logged into iFunny
 	 */
-	badge_size: Size;
+	days: number;
 	/**
 	 * Days needed to get to the meme rank
 	 */
-	next_milestone: number;
+	next_milestone: typeof MILESTONES[keyof typeof MILESTONES];
+	/**
+	 * The user's rank name
+	 */
+	rank: APIMemeRank;
 }
 
 /**
@@ -235,6 +270,126 @@ export enum RANK {
 	 */
 	CHEFS_MEME_AGENT = "Chef's meme agent",
 }
+
+/**
+ * The minimum amount of days for each rank
+ */
+export const DAYS = {
+	/**
+	 * Days: `1-4`
+	 */
+	MEME_EXPLORER: 1,
+	/**
+	 * Days: `5-24`
+	 */
+	MEME_BRO: 5,
+	/**
+	 * Days: `25-49`
+	 */
+	MEME_DADDY: 25,
+	/**
+	 * Days: `50-99`
+	 */
+	DANK_MEMER: 50,
+	/**
+	 * Days: `100-199`
+	 */
+	MEME_MASTER_BAKER: 100,
+	/**
+	 * Days: `200-299`
+	 */
+	DEEP_FRIED_MEMER: 200,
+	/**
+	 * Days: `300-499`
+	 */
+	SAUCY_MEMER: 300,
+	/**
+	 * Days: `500-665`
+	 */
+	ORIGINAL_MEME_GANGSTER: 500,
+	/**
+	 * Days: `666-910`
+	 */
+	MEME_DEMON: 666,
+	/**
+	 * Days: `911-999`
+	 */
+	STEAL_BEAMS_OF_MEMES: 911,
+	/**
+	 * Days: `1000-1499`
+	 */
+	MEME_DEALER: 1000,
+	/**
+	 * Days: `1500-1999`
+	 */
+	IFUNNY_VETERAN: 1500,
+	/**
+	 * Days: `2000+`
+	 * * Final Meme Rank
+	 * ? next_milestone is `3000` but rank does not change
+	 */
+	CHEFS_MEME_AGENT: 2000,
+} as const;
+
+/**
+ * The next milestone for each rank
+ */
+export const MILESTONES = {
+	/**
+	 * Days: `1-4`
+	 */
+	MEME_EXPLORER: 5,
+	/**
+	 * Days: `5-24`
+	 */
+	MEME_BRO: 25,
+	/**
+	 * Days: `25-49`
+	 */
+	MEME_DADDY: 50,
+	/**
+	 * Days: `50-99`
+	 */
+	DANK_MEMER: 100,
+	/**
+	 * Days: `100-199`
+	 */
+	MEME_MASTER_BAKER: 200,
+	/**
+	 * Days: `200-299`
+	 */
+	DEEP_FRIED_MEMER: 300,
+	/**
+	 * Days: `300-499`
+	 */
+	SAUCY_MEMER: 500,
+	/**
+	 * Days: `500-665`
+	 */
+	ORIGINAL_MEME_GANGSTER: 666,
+	/**
+	 * Days: `666-910`
+	 */
+	MEME_DEMON: 911,
+	/**
+	 * Days: `911-999`
+	 */
+	STEAL_BEAMS_OF_MEMES: 1000,
+	/**
+	 * Days: `1000-1499`
+	 */
+	MEME_DEALER: 1500,
+	/**
+	 * Days: `1500-1999`
+	 */
+	IFUNNY_VETERAN: 2000,
+	/**
+	 * Days: `2000+`
+	 * * Final Meme Rank\
+	 * ? next_milestone is `3000` but rank does not change
+	 */
+	CHEFS_MEME_AGENT: 3000,
+} as const;
 
 export type APIMemeRank = `${RANK}`;
 
