@@ -1,5 +1,5 @@
-import { APIContent } from "../payloads";
-import { RESTAPISuccessResponse } from "../utils";
+import { APIContent, APISimpleUser } from "../payloads";
+import { RESTAPIItems, RESTAPISuccessResponse } from "../utils";
 
 /**
  * Possible report reasons
@@ -82,3 +82,46 @@ export type APIActionLocation = `${ACTION_LOCATION}`;
  * GET /v4/content/:contentId
  */
 export type RESTAPIContentResponse = RESTAPISuccessResponse<APIContent>;
+
+/**
+ * Nums returned when smiling or unsmiling content
+ */
+export interface ContentSmileNums {
+	num_smiles: number;
+	num_unsmiles: number;
+	num_guest_smiles: number;
+}
+
+/**
+ * @example
+ * PUT /v4/content/:contentId/smiles
+ * DELETE /v4/content/:contentId/smiles
+ * PUT /v4/content/:contentId/unsmiles
+ * DELETE /v4/content/:contentId/unsmiles
+ */
+export type RESTAPIContentSmileResponse = RESTAPISuccessResponse<ContentSmileNums>;
+
+export interface ContentSmileUsers {
+	smiles_count: number;
+	guest_smiles_count: number;
+	users: RESTAPIItems<APISimpleUser>;
+}
+
+/**
+ * @example
+ * GET /v4/content/:contentId/smiles
+ * GET v4/
+ */
+export type RESTAPIContentSmileUsersResponse = RESTAPISuccessResponse<ContentSmileUsers>;
+
+export interface ContentRepublishUsers {
+	republishes_count: number;
+	users: RESTAPIItems<APISimpleUser>;
+}
+
+/**
+ * @example
+ * GET /v4/content/:contentId/republished
+ */
+export type RESTAPIContentRepublishUsersResponse =
+	RESTAPISuccessResponse<ContentRepublishUsers>;
