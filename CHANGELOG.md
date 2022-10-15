@@ -2,7 +2,20 @@
 > All notable changes to this project will be documented in this file.
 > This Changelog adheres to the [Semantic Versioning]("https://semver.org/")
 
-## [v0.9.1](https://github.com/ifunny-co/ifunny-api-types/compare/v0.9.0...v0.9.1) - 2022-10-14
+## [v0.9.2](https://github.com/ifunny-co/ifunny-api-types/compare/v0.9.1...v0.9.2) - 2022-10-15
+
+### Features
+
+*  Add content smile and republish responses @makeshiftartist ([`5dd2db6`](https://github.com/ifunny-co/ifunny-api-types/commit/5dd2db619ee184dca34366d864b48af91317bf00))
+
+### Fixes
+
+*  Refactor of user and content creator types @makeshiftartist ([`6438b20`](https://github.com/ifunny-co/ifunny-api-types/commit/6438b205f4cafb09430eea306e5e71cfb42b66b2))
+
+
+
+
+## [v0.9.1](https://github.com/ifunny-co/ifunny-api-types/compare/v0.9.0...v0.9.1) - 2022-10-13
 
 
 ### Fixes
