@@ -1,6 +1,172 @@
 import { APIUserBase } from "./user";
 import { HexCode, Size, Timestamp } from "../utils/util";
 
+// * Content objects
+/**
+ * JSON data of an iFunny Post
+ */
+export interface APIContentBase {
+	gif?: APIGifCaptionContentData | APIGifContentData;
+	coub?: APICoubContentData;
+	video?: APIVideoContentData;
+	video_clip?: APIVideoClipContentData;
+	vine?: APIVineContentData;
+	pic?: APIPicContentData;
+	mem?: APIMemeContentData;
+	comics?: APIComicsContentData;
+	caption?: APICaptionContentData;
+	app?: unknown;
+	dem?: unknown;
+	old?: unknown;
+
+	/**
+	 * Unique id of the Content.\
+	 * Typically 9 characters long
+	 */
+	id: string;
+	/**
+	 * The type of the Content
+	 */
+	type: APIContentType;
+	/**
+	 * Content url of the Content
+	 */
+	url: string;
+	/**
+	 * If the Content uses the old watermark or the new one
+	 */
+	old_watermark: boolean;
+	/**
+	 * In-app share url.
+	 * @example
+	 * `https://ifunny.co/picture/${content.id}`
+	 * `https://ifunny.co/video/${content.id}`
+	 */
+	link: string;
+	/**
+	 * The title of the Content
+	 */
+	title: string;
+	/**
+	 * Fixed title of the Content
+	 * @example
+	 * `Gif memes ${content.id} by ${content.creator.nick}`
+	 * `Picture memes ${content.id} by ${content.creator.nick}: ${content.num.comments} comments`
+	 */
+	fixed_title: string;
+	/**
+	 * Array of tags on the Content
+	 */
+	tags: string[];
+	/**
+	 * The publish state of the Content
+	 */
+	state: APIContentState;
+	/**
+	 * {@link Timestamp} of when the Content was created
+	 */
+	date_create: Timestamp;
+	/**
+	 * {@link Timestamp} of when the Content was published
+	 */
+	publish_at: Timestamp;
+	/**
+	 * Is the Content smiled by the Client
+	 */
+	is_smiled: boolean;
+	/**
+	 * Is the Content unsmiled by the Client
+	 */
+	is_unsmiled: boolean;
+	/**
+	 * Was the Content removed by iFunny
+	 */
+	is_abused: boolean;
+	/**
+	 * Is the Content featured
+	 */
+	is_featured: boolean;
+	/**
+	 * Is the Content republished by the Client
+	 */
+	is_republished: boolean;
+	/**
+	 * Is the Content pinned by the creator
+	 */
+	is_pinned: boolean;
+	/**
+	 * Background color of the Content.
+	 */
+	bg_color: HexCode;
+	/**
+	 * The {@link APIContentThumbnail thumbnail} of the Content
+	 */
+	thumb: APIContentThumbnail;
+	/**
+	 * The Content's {@link APIContentCopyright copyright} data
+	 */
+	copyright: APIContentCopyright;
+	/**
+	 * The {@link APIContentNums numbers} on the Content
+	 */
+	num: APIContentNums;
+	/**
+	 * The author of the Content
+	 */
+	creator?: APIContentCreator;
+	/**
+	 * Size of the Content
+	 */
+	size: Size;
+	/**
+	 * Timestamp of when the Content was featured if it was featured
+	 */
+	issue_at?: Timestamp;
+	/**
+	 * Url of the original source
+	 */
+	traceback_url?: string;
+	/**
+	 * The Content's visibility
+	 */
+	visibility: APIContentVisibility;
+	/**
+	 * TODO: shot_status description
+	 */
+	shot_status: APIContentShotStatus;
+	/**
+	 * TODO: fast_start description
+	 */
+	fast_start: boolean;
+	/**
+	 * The risk level of the Content\
+	 * `1` Default
+	 */
+	risk: number;
+	/**
+	 * @example
+	 * `https://ifunny.co/picture/${content.id}`
+	 */
+	canonical_url: string;
+	/**
+	 * Text generated from iFunny's OCR
+	 */
+	ocr_text?: string;
+	/**
+	 * Can the Content still be boosted
+	 */
+	can_be_boosted: boolean;
+	/**
+	 * The source of the Content if it's a republish
+	 */
+	source?: APIContentSource;
+	/**
+	 * From Tag (maybe?)\
+	 * ? Only seems to appear in feature feed. Possibly incorrect documentation
+	 */
+	ftag?: APIActionLocation;
+}
+
 // * Enum types
 
 /**
@@ -145,6 +311,27 @@ export enum CONTENT_STATE {
  * Possible Content states
  */
 export type APIContentState = `${CONTENT_STATE}`;
+
+/**
+ * Where an action was completed
+ * @example
+ * PUT /v4/reads/:contentId?from=:ACTION_LOCATION
+ */
+export enum ACTION_LOCATION {
+	CHANNEL = "channel",
+	COLLECTIVE = "coll",
+	FEATURES = "feat",
+	MONOFEED = "monofeed",
+	MY_SMILES = "my-smiles",
+	PROFILE = "prof",
+	SUBS = "subs",
+	TAG = "tag",
+}
+
+/**
+ * Possible `from` locations
+ */
+export type APIActionLocation = `${ACTION_LOCATION}`;
 
 // * Sub objects
 
@@ -397,171 +584,6 @@ export type APIContentData =
 
 // ? Special/Unknown
 export interface UnknownContentData extends JSON {}
-
-// * Content objects
-/**
- * JSON data of an iFunny Post
- */
-export interface APIContentBase {
-	gif?: APIGifCaptionContentData | APIGifContentData;
-	coub?: APICoubContentData;
-	video?: APIVideoContentData;
-	video_clip?: APIVideoClipContentData;
-	vine?: APIVineContentData;
-	pic?: APIPicContentData;
-	mem?: APIMemeContentData;
-	comics?: APIComicsContentData;
-	caption?: APICaptionContentData;
-	app?: unknown;
-	dem?: unknown;
-	old?: unknown;
-
-	/**
-	 * Unique id of the Content.\
-	 * Typically 9 characters long
-	 */
-	id: string;
-	/**
-	 * The type of the Content
-	 */
-	type: APIContentType;
-	/**
-	 * Content url of the Content
-	 */
-	url: string;
-	/**
-	 * If the Content uses the old watermark or the new one
-	 */
-	old_watermark: boolean;
-	/**
-	 * In-app share url.
-	 * @example
-	 * `https://ifunny.co/picture/${content.id}`
-	 * `https://ifunny.co/video/${content.id}`
-	 */
-	link: string;
-	/**
-	 * The title of the Content
-	 */
-	title: string;
-	/**
-	 * Fixed title of the Content
-	 * @example
-	 * `Gif memes ${content.id} by ${content.creator.nick}`
-	 * `Picture memes ${content.id} by ${content.creator.nick}: ${content.num.comments} comments`
-	 */
-	fixed_title: string;
-	/**
-	 * Array of tags on the Content
-	 */
-	tags: string[];
-	/**
-	 * The publish state of the Content
-	 */
-	state: APIContentState;
-	/**
-	 * {@link Timestamp} of when the Content was created
-	 */
-	date_create: Timestamp;
-	/**
-	 * {@link Timestamp} of when the Content was published
-	 */
-	publish_at: Timestamp;
-	/**
-	 * Is the Content smiled by the Client
-	 */
-	is_smiled: boolean;
-	/**
-	 * Is the Content unsmiled by the Client
-	 */
-	is_unsmiled: boolean;
-	/**
-	 * Was the Content removed by iFunny
-	 */
-	is_abused: boolean;
-	/**
-	 * Is the Content featured
-	 */
-	is_featured: boolean;
-	/**
-	 * Is the Content republished by the Client
-	 */
-	is_republished: boolean;
-	/**
-	 * Is the Content pinned by the creator
-	 */
-	is_pinned: boolean;
-	/**
-	 * Background color of the Content.
-	 */
-	bg_color: HexCode;
-	/**
-	 * The {@link APIContentThumbnail thumbnail} of the Content
-	 */
-	thumb: APIContentThumbnail;
-	/**
-	 * The Content's {@link APIContentCopyright copyright} data
-	 */
-	copyright: APIContentCopyright;
-	/**
-	 * The {@link APIContentNums numbers} on the Content
-	 */
-	num: APIContentNums;
-	/**
-	 * The author of the Content
-	 */
-	creator?: APIContentCreator;
-	/**
-	 * Size of the Content
-	 */
-	size: Size;
-	/**
-	 * Timestamp of when the Content was featured if it was featured
-	 */
-	issue_at?: Timestamp;
-	/**
-	 * Url of the original source
-	 */
-	traceback_url?: string;
-	/**
-	 * The Content's visibility
-	 */
-	visibility: APIContentVisibility;
-	/**
-	 * TODO: shot_status description
-	 */
-	shot_status: APIContentShotStatus;
-	/**
-	 * TODO: fast_start description
-	 */
-	fast_start: boolean;
-	/**
-	 * The risk level of the Content
-	 */
-	risk: number;
-	/**
-	 * @example
-	 * `https://ifunny.co/picture/${content.id}`
-	 */
-	canonical_url: string;
-	/**
-	 * Text generated from iFunny's OCR
-	 */
-	ocr_text?: string;
-	/**
-	 * Can the Content still be boosted
-	 */
-	can_be_boosted: boolean;
-	/**
-	 * The source of the Content if it's a republish
-	 */
-	source?: APIContentSource;
-	/**
-	 * From Tag (maybe?)\
-	 * TODO: Document ftag
-	 */
-	ftag: string;
-}
 
 // ? Videos
 export interface APICoubContent extends APIContentBase {

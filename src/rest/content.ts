@@ -57,27 +57,6 @@ export enum REPORT_TYPE {
 export type APIReportReason = `${REPORT_TYPE}`;
 
 /**
- * Where an action was completed
- * @example
- * PUT /v4/reads/:contentId?from=:ACTION_LOCATION
- */
-export enum ACTION_LOCATION {
-	CHANNEL = "channel",
-	COLLECTIVE = "coll",
-	FEATURES = "feat",
-	MONOFEED = "monofeed",
-	MY_SMILES = "my-smiles",
-	PROFILE = "prof",
-	SUBS = "subs",
-	TAG = "tag",
-}
-
-/**
- * Possible `from` locations
- */
-export type APIActionLocation = `${ACTION_LOCATION}`;
-
-/**
  * @example
  * GET /v4/content/:contentId
  */
@@ -110,7 +89,6 @@ export interface ContentSmileUsers {
 /**
  * @example
  * GET /v4/content/:contentId/smiles
- * GET v4/
  */
 export type RESTAPIContentSmileUsersResponse = RESTAPISuccessResponse<ContentSmileUsers>;
 
