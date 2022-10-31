@@ -2,7 +2,17 @@
 > All notable changes to this project will be documented in this file.
 > This Changelog adheres to the [Semantic Versioning]("https://semver.org/")
 
-## [v0.9.5](https://github.com/ifunny-co/ifunny-api-types/compare/v0.9.4...v0.9.5) - 2022-10-31
+## [v0.9.6](https://github.com/ifunny-co/ifunny-api-types/compare/v0.9.5...v0.9.6) - 2022-10-31
+
+
+### Fixes
+
+*  Casing on APINews @makeshiftartist ([`123fe79`](https://github.com/ifunny-co/ifunny-api-types/commit/123fe7974994ffadf86310be886b4161bf99c229))
+
+
+
+
+## [v0.9.5](https://github.com/ifunny-co/ifunny-api-types/compare/v0.9.4...v0.9.5) - 2022-10-30
 
 
 ### Fixes
