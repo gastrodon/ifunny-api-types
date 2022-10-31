@@ -25,6 +25,7 @@ export interface APIUserBase
 		| "nick_color"
 		| "rating"
 		| "original_nick"
+		| "block_type"
 	> {
 	/**
 	 * Only includes subscription and subscriber count
