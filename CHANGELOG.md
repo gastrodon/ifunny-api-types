@@ -2,7 +2,17 @@
 > All notable changes to this project will be documented in this file.
 > This Changelog adheres to the [Semantic Versioning]("https://semver.org/")
 
-## [v0.9.4](https://github.com/ifunny-co/ifunny-api-types/compare/v0.9.3...v0.9.4) - 2022-10-31
+## [v0.9.5](https://github.com/ifunny-co/ifunny-api-types/compare/v0.9.4...v0.9.5) - 2022-10-31
+
+
+### Fixes
+
+*  Add NICK_COLORS#WHITE @makeshiftartist ([`e282a4e`](https://github.com/ifunny-co/ifunny-api-types/commit/e282a4e098d687934ab80a3d16e92bc3434131f2))
+
+
+
+
+## [v0.9.4](https://github.com/ifunny-co/ifunny-api-types/compare/v0.9.3...v0.9.4) - 2022-10-30
 
 
 ### Fixes
