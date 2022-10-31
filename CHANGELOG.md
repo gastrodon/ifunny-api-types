@@ -2,7 +2,17 @@
 > All notable changes to this project will be documented in this file.
 > This Changelog adheres to the [Semantic Versioning]("https://semver.org/")
 
-## [v0.9.3](https://github.com/ifunny-co/ifunny-api-types/compare/v0.9.2...v0.9.3) - 2022-10-15
+## [v0.9.4](https://github.com/ifunny-co/ifunny-api-types/compare/v0.9.3...v0.9.4) - 2022-10-31
+
+
+### Fixes
+
+*  Add block_type to APIUser @makeshiftartist ([`af4e8fe`](https://github.com/ifunny-co/ifunny-api-types/commit/af4e8fe52b2948eee4aed28e323be1e2cb5e626e))
+
+
+
+
+## [v0.9.3](https://github.com/ifunny-co/ifunny-api-types/compare/v0.9.2...v0.9.3) - 2022-10-14
 
 
 
