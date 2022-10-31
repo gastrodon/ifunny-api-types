@@ -510,6 +510,7 @@ export enum NICK_COLOR {
 	RED = "ff3e52",
 	PURPLE = "a078f0",
 	ORANGE = "e0b400",
+	WHITE = "ffffff",
 }
 
 /**
