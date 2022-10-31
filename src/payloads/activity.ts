@@ -10,22 +10,22 @@ interface Smiles {
 }
 
 export interface APINews {
-	ban_id?: string;
-	ban_type?: APIBanType;
-	ban_message?: string;
+	banId?: string;
+	banType?: APIBanType;
+	banTypeMessage?: string;
 	comment?: APIComment;
 	content?: APIContent;
-	count_active_strike?: number;
+	countActiveStrike?: number;
 	date: Timestamp;
 	date_until?: Timestamp;
-	expired_at?: Timestamp;
-	image_url?: string;
+	expiredAt?: Timestamp;
+	imageUrl?: string;
 	mention_content?: APIContent;
 	mention_users?: APIMentionUser[];
-	purchase_type?: string;
+	purchaseType?: string;
 	reply?: APIReply;
 	smiles?: number;
-	strike_id?: string;
+	strikeId?: string;
 	text?: string;
 	title?: string;
 	type: APINewsType;
