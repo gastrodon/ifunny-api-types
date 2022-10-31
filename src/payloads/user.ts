@@ -60,6 +60,10 @@ export interface APIUser extends APIBasePayload {
 	 */
 	bans: APIBan[];
 	/**
+	 * Block type if the user is blocked
+	 */
+	block_type?: APIUserBlockType;
+	/**
 	 * User's cover image background color {@link HexCode}
 	 */
 	cover_bg_color?: HexCode;
@@ -168,6 +172,13 @@ export interface APIUser extends APIBasePayload {
 	 */
 	web_url: string;
 }
+
+export enum UserBlockType {
+	USER = "user",
+	INST = "installation",
+}
+
+export type APIUserBlockType = `${UserBlockType}`;
 
 /**
  * `closed` only the user can create direct messages\
