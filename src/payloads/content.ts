@@ -639,7 +639,7 @@ export interface APIUnknownContent extends APIContentBase {
 /**
  * The source of the original content
  */
-type APIContentSource = Pick<APIContent, "id" | "date_create" | "creator">;
+export type APIContentSource = Pick<APIContent, "id" | "date_create" | "creator">;
 
 /**
  * Any possible Content type
