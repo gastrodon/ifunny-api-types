@@ -10,11 +10,12 @@ export class Endpoints {
 	static readonly subscriptionFeed = "/timelines/home";
 	static readonly timelines = "/timelines";
 	static readonly token = "/oauth2/token";
-	static readonly myComments = "/users/my/comments";
-	static readonly chatInvites = "/users/my/chat_invitations";
-	static readonly mySmiles = "/users/my/content_smiles";
-	static readonly myAppeals = "/users/my/appeals";
-	static readonly unreadChatMessages = "/users/my/unread_chat_messages";
+	static readonly myUser = "/users/my";
+	static readonly myComments = this.myUser + "/comments";
+	static readonly chatInvites = this.myUser + "/chat_invitations";
+	static readonly mySmiles = this.myUser + "/content_smiles";
+	static readonly myAppeals = this.myUser + "/appeals";
+	static readonly unreadChatMessages = this.myUser + "/unread_chat_messages";
 	static readonly myNews = "/news/my";
 	static readonly nicksAvailable = "/users/nicks_available";
 	static readonly emailsAvailable = "/users/emails_available";
@@ -64,6 +65,29 @@ export class Endpoints {
 	 */
 	static blocked(user: string, byNick: boolean = false): string {
 		return this.user(user, byNick) + "/blocked";
+	}
+
+	/**
+	 *
+	 * @param user User nick or ID
+	 * @param byNick User is the nick
+	 * @example
+	 * ""
+	 */
+	static blockedData(user: string, byNick: boolean = false): string {
+		return this.blocked(user, byNick) + "/data";
+	}
+
+	/**
+	 *
+	 * @param user Url to block
+	 * @param byNick Is the user the nick?
+	 * @example
+	 * "/users/my/blocked/:userId"
+	 * "/users/my/blocked/by_nick/:userNick"
+	 */
+	static blockUser(user: string, byNick: boolean = false): string {
+		return this.myUser + "/blocked" + this.user(user, byNick);
 	}
 
 	/**
