@@ -1,9 +1,9 @@
-import { APIUserBase } from "./user";
+import { APIUserProfile } from "./user";
 
 /**
  * The user data retrieved from `/account`
  */
-export interface APIClientUser extends Omit<APIUserBase, "rating"> {
+export interface APIClientUser extends Omit<APIUserProfile, "rating"> {
 	/**
 	 * The verified phone number attatched to the Client's account
 	 */

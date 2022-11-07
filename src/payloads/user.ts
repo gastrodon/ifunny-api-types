@@ -1,18 +1,18 @@
 import { HexCode, Size } from "../utils/util";
-import { APIBan } from "./ban";
+import { APIBanSmall } from "./ban";
 import { APIBasePayload } from "./base";
 
 /**
  * Simple user type typically found in array of users
  */
-export type APISimpleUser = Omit<APIUserBase, "rating" | "nick_color">;
+export type APISimpleUser = Omit<APIUser, "rating" | "nick_color">;
 
 /**
  * The creator object for the Content
  */
-export interface APIUserBase
+export interface APIUser
 	extends Pick<
-		APIUser,
+		APIUserProfile,
 		| "id"
 		| "nick"
 		| "photo"
@@ -30,7 +30,7 @@ export interface APIUserBase
 	/**
 	 * Only includes subscription and subscriber count
 	 */
-	num: APIUserNumBase;
+	num: APIUserNums;
 	/**
 	 * Total amount of posts the user has
 	 */
@@ -41,12 +41,15 @@ export interface APIUserBase
  * Num object for the simple user\
  * ? `total_posts` is not in APIUserNumBase. Try `user.total_posts`
  */
-export type APIUserNumBase = Pick<APIUserNums, "subscribers" | "subscriptions">;
+export interface APIUserNums {
+	subscribers: number;
+	subsciptions: number;
+}
 
 /**
  * Represents a user from iFunny
  */
-export interface APIUser extends APIBasePayload {
+export interface APIUserProfile extends APIBasePayload {
 	/**
 	 * User's about bio\
 	 * ? Can be an empty string
@@ -59,7 +62,7 @@ export interface APIUser extends APIBasePayload {
 	/**
 	 * Array of APIBan objects.
 	 */
-	bans: APIBan[];
+	bans: APIBanSmall[];
 	/**
 	 * Block type if the user is blocked
 	 */
@@ -146,7 +149,7 @@ export interface APIUser extends APIBasePayload {
 	/**
 	 * User's profile stats
 	 */
-	num: APIUserNums;
+	num: APIUserProfileNums;
 	/**
 	 * Original nick of the user\
 	 * ? Doesn't seem to change
@@ -176,7 +179,7 @@ export interface APIUser extends APIBasePayload {
 
 export enum UserBlockType {
 	USER = "user",
-	INST = "installation",
+	INSTALLATION = "installation",
 }
 
 export type APIUserBlockType = `${UserBlockType}`;
@@ -438,15 +441,7 @@ export interface APIProfilePhotoThumbnail {
 	small_url: string;
 }
 
-export interface APIUserNums {
-	/**
-	 * Amount of users the user is subscribed to
-	 */
-	subscriptions: number;
-	/**
-	 * Amount of subscribers the user has
-	 */
-	subscribers: number;
+export interface APIUserProfileNums extends APIUserNums {
 	/**
 	 * Total amount of posts on the user's timeline
 	 */
@@ -477,10 +472,7 @@ export interface APIUserRating {
 	points: number;
 	current_level: APIUserRatingLevel;
 	next_level: APIUserRatingLevel;
-	/**
-	 * Always the same values
-	 */
-	max_level: APIUserRatingLevelMax;
+	max_level: APIUserRatingLevel; // Always has same values
 	is_show_level: boolean;
 }
 
@@ -494,12 +486,6 @@ export interface APIUserRatingLevel {
 	points: number;
 }
 
-export interface APIUserRatingLevelMax extends APIUserRatingLevel {
-	id: "5d3f0152a88a50006d4b1d5c";
-	value: 99;
-	points: 297600;
-}
-
 // TODO: Find all nick colors.
 /**
  * Known nick colors
@@ -508,9 +494,10 @@ export enum NICK_COLOR {
 	BRIGHT_GREEN = "55FF00",
 	BETA_TESTER = BRIGHT_GREEN,
 	MAROON = "660000",
-	RED = "ff3e52",
-	PURPLE = "a078f0",
 	ORANGE = "e0b400",
+	PURPLE = "a078f0",
+	RED = "ff3e52",
+	// Default
 	WHITE = "ffffff",
 }
 
@@ -556,6 +543,6 @@ export interface APIUserAllSocials {
 export interface APIUserSocial {
 	id: string;
 	is_hidden: boolean;
-	nick?: string;
 	link: string;
+	nick?: string;
 }
