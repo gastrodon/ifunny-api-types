@@ -2,6 +2,23 @@
 > All notable changes to this project will be documented in this file.
 > This Changelog adheres to the [Semantic Versioning]("https://semver.org/")
 
+## [v0.10.4](https://github.com/ifunny-co/ifunny-api-types/compare/v0.10.3...v0.10.4) - 2022-11-07
+
+
+### Fixes
+
+*  APIBanSmall#type now APIBanType @makeshiftartist ([`f560eec`](https://github.com/ifunny-co/ifunny-api-types/commit/f560eecf8e6b61ee20cda4cb0393448c98e38820))
+
+
+
+
+## [v0.10.3](https://github.com/ifunny-co/ifunny-api-types/compare/v0.10.2...v0.10.3) - 2022-11-06
+
+
+
+
+
+
 ## [v0.10.2](https://github.com/ifunny-co/ifunny-api-types/compare/v0.10.1...v0.10.2) - 2022-11-06
 
 
