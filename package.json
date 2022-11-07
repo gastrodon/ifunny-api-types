@@ -31,9 +31,9 @@
 	},
 	"homepage": "https://github.com/ifunny-co/ifunny-api-types#readme",
 	"devDependencies": {
-		"@types/node": "^18.7.9",
+		"@types/node": "^18.11.9",
 		"auto-changelog": "^2.4.0",
-		"typescript": "^4.7.4"
+		"typescript": "^4.8.4"
 	},
 	"auto-changelog": {
 		"template": "changelog-template.hbs",
