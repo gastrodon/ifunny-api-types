@@ -18,7 +18,7 @@ export interface APIBanSmall {
 	/**
 	 * Known {@link BAN_TYPES types}
 	 */
-	type: APIBanReason;
+	type: APIBanType;
 }
 
 export interface APIBan extends APIBanSmall {
