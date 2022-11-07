@@ -3,7 +3,7 @@ import { APIComment, APIMentionUser, APIReply } from "./comment";
 import { APIBanType } from "./ban";
 import { APIContent } from "./content";
 import { APIUser } from "./user";
-import { Timestamp } from "../utils";
+import { EpochSec } from "../utils";
 
 interface Smiles {
 	smiles: string;
@@ -16,9 +16,9 @@ export interface APINews {
 	comment?: APIComment;
 	content?: APIContent;
 	countActiveStrike?: number;
-	date: Timestamp;
-	date_until?: Timestamp;
-	expiredAt?: Timestamp;
+	date: EpochSec;
+	date_until?: EpochSec;
+	expiredAt?: EpochSec;
 	imageUrl?: string;
 	mention_content?: APIContent;
 	mention_users?: APIMentionUser[];
@@ -30,7 +30,7 @@ export interface APINews {
 	title?: string;
 	type: APINewsType;
 	url?: string;
-	user?: APIUser;
+	user?: APINewsUser;
 	username?: string;
 }
 

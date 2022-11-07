@@ -39,10 +39,10 @@ export type If<T extends boolean, A, B = null> = T extends true
 	: A | B;
 
 /**
- * UNIX timestamp in seconds
- * ? For better accuracy, convert to milliseconds by multiplying by 1000
+ * UNIX Epoch in seconds
+ * ? For better accuracy, convert to milliseconds
  */
-export type Timestamp = number;
+export type EpochSec = number;
 
 /**
  * @example

@@ -1,11 +1,11 @@
-import { Timestamp } from "../utils/util";
+import { EpochSec } from "../utils/util";
 
 /**
  * When the next feature set releases
  */
 export interface APINextIssueTime {
-	time_left: Timestamp;
-	time: Timestamp;
+	time_left: EpochSec;
+	time: EpochSec;
 }
 
 /**
