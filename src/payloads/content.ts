@@ -276,8 +276,8 @@ export enum ContentType {
 	// ? Special / Unknown
 	/**
 	 * An interactive Content from iFunny\
-	 * Data key: `app`
-	 * @deprecated This Content type has been removed from iFunny
+	 * Data key: `app`\
+	 * Deprecated by iFunny. This Content type has been removed from iFunny
 	 */
 	APP = "app",
 	/**
@@ -706,4 +706,4 @@ export type APIContentGif = APIGifContent | APIGifCaptionContent;
  * All currently undocumented Content types. Once documented, these may move into the appropriate Content types above.\
  * ? Currently: 'dem', 'old', 'app'
  */
-export type APIContentSpecial = APIUnknownContent;
+export type APIContentSpecial = APIUnknownContent | APIAppContent;
