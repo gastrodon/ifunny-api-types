@@ -2,7 +2,18 @@
 > All notable changes to this project will be documented in this file.
 > This Changelog adheres to the [Semantic Versioning]("https://semver.org/")
 
-## [v0.10.1](https://github.com/ifunny-co/ifunny-api-types/compare/v0.10.0...v0.10.1) - 2022-11-07
+## [v0.10.2](https://github.com/ifunny-co/ifunny-api-types/compare/v0.10.1...v0.10.2) - 2022-11-07
+
+
+### Fixes
+
+*  typo in APIUserNums @makeshiftartist ([`1bdf5a0`](https://github.com/ifunny-co/ifunny-api-types/commit/1bdf5a0f83759bebf32be9a06d50a0ecc92d5eb2))
+*  Removed deprecation warning @makeshiftartist ([`e87cd30`](https://github.com/ifunny-co/ifunny-api-types/commit/e87cd30a3c9da9c843d9c28104895a59e1952d26))
+
+
+
+
+## [v0.10.1](https://github.com/ifunny-co/ifunny-api-types/compare/v0.10.0...v0.10.1) - 2022-11-06
 
 
 ### Fixes
