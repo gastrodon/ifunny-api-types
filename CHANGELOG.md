@@ -2,7 +2,25 @@
 > All notable changes to this project will be documented in this file.
 > This Changelog adheres to the [Semantic Versioning]("https://semver.org/")
 
-## [v0.9.6](https://github.com/ifunny-co/ifunny-api-types/compare/v0.9.5...v0.9.6) - 2022-10-31
+## [v0.10.0](https://github.com/ifunny-co/ifunny-api-types/compare/v0.9.6...v0.10.0) - 2022-11-07
+
+### Features
+
+*  Add improvments to Content @makeshiftartist ([`51a61ab`](https://github.com/ifunny-co/ifunny-api-types/commit/51a61ab11dec01d07328c5ce14e94e0c49986a8e))
+*  Add APIBan and APIBanSmall @makeshiftartist ([`40ce505`](https://github.com/ifunny-co/ifunny-api-types/commit/40ce5057c98bb67cffc288d0ff828a8b26a61485))
+*  Add APIAppeal @makeshiftartist ([`9eea420`](https://github.com/ifunny-co/ifunny-api-types/commit/9eea420afb4b63e4bdd77481a882e4622c8e67c0))
+*  Add APIStrike @makeshiftartist ([`2cea19f`](https://github.com/ifunny-co/ifunny-api-types/commit/2cea19fa5a9dffd9975598b79748a233d8d986a3))
+
+### Fixes
+
+*  Add missing blocked endpoints @makeshiftartist ([`0e81dfa`](https://github.com/ifunny-co/ifunny-api-types/commit/0e81dfa52c865ac453c3f3b09d547e82938b40c2))
+*  APIContentSource now exported @makeshiftartist ([`6fa1e67`](https://github.com/ifunny-co/ifunny-api-types/commit/6fa1e672d18737fc663d5f8cc03cbf6b22ede150))
+*  Add block_type to APIUserBase @makeshiftartist ([`38525cc`](https://github.com/ifunny-co/ifunny-api-types/commit/38525cc4ac5aa928050d7eb7fd92ad97359968a0))
+
+
+
+
+## [v0.9.6](https://github.com/ifunny-co/ifunny-api-types/compare/v0.9.5...v0.9.6) - 2022-10-30
 
 
 ### Fixes
