@@ -1,5 +1,5 @@
-import { APIUserBase } from "./user";
-import { HexCode, Size, Timestamp } from "../utils/util";
+import { APIUser } from "./user";
+import { HexCode, Size, EpochSec } from "../utils/util";
 
 // * Content objects
 /**
@@ -15,7 +15,7 @@ export interface APIContentBase {
 	mem?: APIMemeContentData;
 	comics?: APIComicsContentData;
 	caption?: APICaptionContentData;
-	app?: unknown;
+	app?: APIAppContentData;
 	dem?: unknown;
 	old?: unknown;
 
@@ -63,13 +63,13 @@ export interface APIContentBase {
 	 */
 	state: APIContentState;
 	/**
-	 * {@link Timestamp} of when the Content was created
+	 * {@link EpochSec Timestamp} of when the Content was created in seconds
 	 */
-	date_create: Timestamp;
+	date_create: EpochSec;
 	/**
-	 * {@link Timestamp} of when the Content was published
+	 * {@link EpochSec Timestamp} of when the Content was published in seconds
 	 */
-	publish_at: Timestamp;
+	publish_at: EpochSec;
 	/**
 	 * Is the Content smiled by the Client
 	 */
@@ -119,9 +119,9 @@ export interface APIContentBase {
 	 */
 	size: Size;
 	/**
-	 * Timestamp of when the Content was featured if it was featured
+	 * EpochSec of when the Content was featured if it was featured
 	 */
-	issue_at?: Timestamp;
+	issue_at?: EpochSec;
 	/**
 	 * Url of the original source
 	 */
@@ -131,7 +131,7 @@ export interface APIContentBase {
 	 */
 	visibility: APIContentVisibility;
 	/**
-	 * TODO: shot_status description
+	 * TODO: ShotStatus description
 	 */
 	shot_status: APIContentShotStatus;
 	/**
@@ -164,7 +164,7 @@ export interface APIContentBase {
 	 * From Tag (maybe?)\
 	 * ? Only seems to appear in feature feed. Possibly incorrect documentation
 	 */
-	ftag?: APIActionLocation;
+	ftag?: APIFeedFrom;
 }
 
 // * Enum types
@@ -172,7 +172,7 @@ export interface APIContentBase {
 /**
  * Content visibility types
  */
-export enum CONTENT_VISIBILITY {
+export enum ContentVisibility {
 	/**
 	 * Anyone can see the Content
 	 */
@@ -185,14 +185,18 @@ export enum CONTENT_VISIBILITY {
 	 * Only the creator can see the Content
 	 */
 	CLOSED = "closed",
+	/**
+	 * Only visible in Chats
+	 */
+	CHATS = "chats",
 }
 
-export type APIContentVisibility = `${CONTENT_VISIBILITY}`;
+export type APIContentVisibility = `${ContentVisibility}`;
 
 /**
  * Content shot status types
  */
-export enum SHOT_STATUS {
+export enum ShotStatus {
 	/**
 	 * The Content was approved for upload and comment attachments are enabled
 	 */
@@ -210,12 +214,12 @@ export enum SHOT_STATUS {
 /**
  * Possible shot statuses
  */
-export type APIContentShotStatus = `${SHOT_STATUS}`;
+export type APIContentShotStatus = `${ShotStatus}`;
 
 /**
  * All currently known Content types
  */
-export enum CONTENT_TYPE {
+export enum ContentType {
 	// ? Videos
 	/**
 	 * Most common video Content type\
@@ -271,21 +275,21 @@ export enum CONTENT_TYPE {
 	COMICS = "comics",
 	// ? Special / Unknown
 	/**
-	 * An interactive Content from iFunny
-	 * Data key: `app` (Unknown due to deprecation)
-	 * @deprecated This Content type has been removed from the database and will not be available
+	 * An interactive Content from iFunny\
+	 * Data key: `app`
+	 * @deprecated This Content type has been removed from iFunny
 	 */
 	APP = "app",
 	/**
 	 * Unknown Content type\
 	 * Data key: `old` (Unknown due to deprecation)\
-	 * TODO: Document what CONTENT_TYPE.OLD is
+	 * TODO: Document what ContentType.OLD is
 	 */
 	OLD = "old",
 	/**
 	 * Unknown Content type\
 	 * Data key: `dem` (Unknown due to deprecation)\
-	 * TODO: Document what CONTENT_TYPE.DEM is
+	 * TODO: Document what ContentType.DEM is
 	 */
 	DEM = "dem",
 }
@@ -293,52 +297,68 @@ export enum CONTENT_TYPE {
 /**
  * Possible Content types
  */
-export type APIContentType = `${CONTENT_TYPE}`;
+export type APIContentType = `${ContentType}`;
 
-// TODO: Discover more Content states
-export enum CONTENT_STATE {
-	/**
-	 * The Content is published
-	 */
-	PUBLISHED = "published",
+export enum ContentState {
 	/**
 	 * Content that was scheduled to be published later
 	 */
 	DELAYED = "delayed",
+	/**
+	 * Content was deleted
+	 */
+	DELETED = "deleted",
+	/**
+	 * Content is a draft that hasn't been published
+	 */
+	DRAFT = "draft",
+	/**
+	 * The Content is published. Default
+	 */
+	PUBLISHED = "published",
 }
 
 /**
  * Possible Content states
  */
-export type APIContentState = `${CONTENT_STATE}`;
+export type APIContentState = `${ContentState}`;
 
 /**
  * Where an action was completed
  * @example
  * PUT /v4/reads/:contentId?from=:ACTION_LOCATION
  */
-export enum ACTION_LOCATION {
+export enum FeedFrom {
+	ATTACHMENT = "attach",
 	CHANNEL = "channel",
 	COLLECTIVE = "coll",
 	FEATURES = "feat",
 	MONOFEED = "monofeed",
+	MYSMILES = "mySmiles",
 	MY_SMILES = "my-smiles",
+	MY_COMMENTS = "mycomms",
 	PROFILE = "prof",
+	REC = "rec",
+	SEAR = "sear",
 	SUBS = "subs",
+	USER_FEATURES = "userfeat",
+	READS = "reads",
 	TAG = "tag",
 }
 
 /**
  * Possible `from` locations
  */
-export type APIActionLocation = `${ACTION_LOCATION}`;
+export type APIFeedFrom = `${FeedFrom}`;
+
+export type APIFTag = APIFeedFrom;
 
 // * Sub objects
 
 /**
  * The creator object for the Content
  */
-export type APIContentCreator = APIUserBase;
+export type APIContentCreator = APIUser;
 
 /**
  * Alias for {@link APIContentCreator}
@@ -417,7 +437,7 @@ export interface APIContentThumbnail {
 	 * crop:x-20,crop:square,resize:65x,quality:90x75\
 	 * `jpg`
 	 */
-	small_url: string;
+	small_url?: string;
 	/**
 	 * crop:x-20,crop:square,resize:160x,quality:90x75\
 	 * `jpg`
@@ -460,9 +480,9 @@ export interface APIContentThumbnail {
 }
 
 /**
- * WebP information. created to prevent code duplication
+ * Pic Data
  */
-export interface WebP {
+export interface APIPicContentData {
 	/**
 	 * webp format url of the Content
 	 */
@@ -471,13 +491,12 @@ export interface WebP {
 
 // * Specific Content objects
 
-// TODO: Find more VIDEO_SOURCE_TYPES
-export enum VIDEO_SOURCE {
+export enum VideoSource {
 	USER = "user",
 	INSTAGRAM = "instagram",
 }
 
-export type APIVideoSourceType = `${VIDEO_SOURCE}`;
+export type APIVideoSourceType = `${VideoSource}`;
 
 // * Data objects
 
@@ -527,7 +546,7 @@ export interface APIVideoClipContentData {
 	/**
 	 * In seconds
 	 */
-	duration: Timestamp;
+	duration: EpochSec;
 }
 
 export interface APIVineContentData {
@@ -542,9 +561,8 @@ export interface APICaptionContentData {
 	 */
 	caption_text: string;
 }
-export type APIComicsContentData = WebP;
-export type APIMemeContentData = WebP;
-export type APIPicContentData = WebP;
+export type APIComicsContentData = APIPicContentData;
+export type APIMemeContentData = APIPicContentData;
 
 // ? Gifs
 export interface APIGifContentData {
@@ -567,73 +585,84 @@ export interface APIGifContentData {
 }
 export type APIGifCaptionContentData = APIGifContentData & APICaptionContentData;
 
+export interface APIAppContentData {
+	url: string;
+	is_scroll_allowed: boolean;
+}
+
 /**
  * The content data for content from Content.pic, Content.video_clip, etc.
  */
 export type APIContentData =
-	| APIGifContentData
-	| APIGifCaptionContentData
+	| APIAppContentData
+	| APICaptionContentData
+	| APIComicsContentData
 	| APICoubContentData
+	| APIGifCaptionContentData
+	| APIGifContentData
+	| APIMemeContentData
+	| APIPicContentData
 	| APIVideoClipContentData
 	| APIVideoContentData
 	| APIVineContentData
-	| APICaptionContentData
-	| APIComicsContentData
-	| APIMemeContentData
-	| APIPicContentData;
+	| UnknownContentData;
 
 // ? Special/Unknown
 export interface UnknownContentData extends JSON {}
 
 // ? Videos
 export interface APICoubContent extends APIContentBase {
-	type: CONTENT_TYPE.COUB;
+	type: ContentType.COUB;
 	coub: APICoubContentData;
 }
 export interface APIVideoClipContent extends APIContentBase {
-	type: CONTENT_TYPE.VIDEO_CLIP;
+	type: ContentType.VIDEO_CLIP;
 	video_clip: APIVideoClipContentData;
 }
 export interface APIVideoContent extends APIContentBase {
-	type: CONTENT_TYPE.VIDEO;
+	type: ContentType.VIDEO;
 	video: APIVideoContentData;
 }
 export interface APIVineContent extends APIContentBase {
-	type: CONTENT_TYPE.VINE;
+	type: ContentType.VINE;
 	vine: APIVineContentData;
 }
 
 // ? Pictures
 export interface APICaptionContent extends APIContentBase {
-	type: CONTENT_TYPE.CAPTION;
+	type: ContentType.CAPTION;
 	caption: APICaptionContentData;
 }
 export interface APIComicsContent extends APIContentBase {
-	type: CONTENT_TYPE.COMICS;
+	type: ContentType.COMICS;
 	comics: APIComicsContentData;
 }
 export interface APIMemeContent extends APIContentBase {
-	type: CONTENT_TYPE.MEME;
+	type: ContentType.MEME;
 	mem: APIMemeContentData;
 }
 export interface APIPicContent extends APIContentBase {
-	type: CONTENT_TYPE.PIC;
-	pic: APIPicContentData;
+	type: ContentType.PIC;
+	pic?: APIPicContentData;
 }
 
 // ? Gifs
 export interface APIGifContent extends APIContentBase {
-	type: CONTENT_TYPE.GIF;
+	type: ContentType.GIF;
 	gif: APIGifContentData;
 }
 export interface APIGifCaptionContent extends APIContentBase {
-	type: CONTENT_TYPE.GIF_CAPTION;
+	type: ContentType.GIF_CAPTION;
 	gif: APIGifCaptionContentData;
+}
+export interface APIAppContent extends APIContentBase {
+	type: ContentType.APP;
+	app: APIAppContentData;
 }
 
 // ? Special/Unknown
 export interface APIUnknownContent extends APIContentBase {
-	type: CONTENT_TYPE.APP | CONTENT_TYPE.OLD | CONTENT_TYPE.DEM;
+	type: ContentType.OLD | ContentType.DEM;
 }
 
 /**
