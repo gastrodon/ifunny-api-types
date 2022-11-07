@@ -42,8 +42,14 @@ export interface APIUser
  * ? `total_posts` is not in APIUserNumBase. Try `user.total_posts`
  */
 export interface APIUserNums {
+	/**
+	 * Total amount of users that are subscribed to the Client
+	 */
 	subscribers: number;
-	subsciptions: number;
+	/**
+	 * Total amount of users the Client is subscribed to
+	 */
+	subscriptions: number;
 }
 
 /**
