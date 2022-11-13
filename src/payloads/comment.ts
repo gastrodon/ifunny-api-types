@@ -68,7 +68,7 @@ export interface APICommentAuthor extends APIContentCreator {
 	rating: APIUserRating;
 }
 
-interface APICommentAttachments {
+export interface APICommentAttachments {
 	content: APIContent[];
 	content_from_links: APIContent[];
 	mention_user: APIMentionUser[];
