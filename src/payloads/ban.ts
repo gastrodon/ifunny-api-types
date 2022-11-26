@@ -3,6 +3,11 @@ import { APIComment } from "./comment";
 import { APIContent } from "./content";
 
 /**
+ * Possible Ban Types
+ */
+export type APIBanType = `${BAN_TYPES}`;
+
+/**
  * Represents a user's ban from the API
  */
 export interface APIBanSmall {
@@ -16,7 +21,7 @@ export interface APIBanSmall {
 	 */
 	date_until: EpochSec;
 	/**
-	 * Known {@link BAN_TYPES types}
+	 * The type of ban
 	 */
 	type: APIBanType;
 }
@@ -86,8 +91,3 @@ export enum BAN_TYPES {
 	// Observed
 	COLLECTIVE_SHADOW = "collective_shadow",
 }
-
-/**
- * Possible Ban Types
- */
-export type APIBanType = `${BAN_TYPES}`;
