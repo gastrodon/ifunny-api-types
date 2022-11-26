@@ -19,6 +19,9 @@ export class Endpoints {
 	static readonly myNews = "/news/my";
 	static readonly nicksAvailable = "/users/nicks_available";
 	static readonly emailsAvailable = "/users/emails_available";
+	static readonly app = "/app";
+	static readonly settings = this.app + "/settings";
+	static readonly privacy = this.app + "/privacy";
 
 	/**
 	 * @param query The nick or id of the user
