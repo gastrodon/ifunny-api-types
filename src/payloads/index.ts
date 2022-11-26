@@ -1,4 +1,5 @@
 export * from "./activity";
+export * from "./app";
 export * from "./appeal";
 export * from "./ban";
 export * from "./base";
