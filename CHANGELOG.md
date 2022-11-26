@@ -2,6 +2,16 @@
 > All notable changes to this project will be documented in this file.
 > This Changelog adheres to the [Semantic Versioning]("https://semver.org/")
 
+## [v0.10.8](https://github.com/ifunny-co/ifunny-api-types/compare/v0.10.7...v0.10.8) - 2022-11-26
+
+
+### Fixes
+
+*  Add missing export @makeshiftartist ([`2a634fa`](https://github.com/ifunny-co/ifunny-api-types/commit/2a634fa6795c86bf2b8b2ea46a19e2f71661e39b))
+
+
+
+
 ## [v0.10.7](https://github.com/ifunny-co/ifunny-api-types/compare/v0.10.6...v0.10.7) - 2022-11-26
 
 
