@@ -5,6 +5,7 @@ changelog-template.hbs
 
 # Miscellaneous
 .vscode/*
+docs/
 
 # Logs
 *.log
