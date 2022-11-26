@@ -2,6 +2,16 @@
 > All notable changes to this project will be documented in this file.
 > This Changelog adheres to the [Semantic Versioning]("https://semver.org/")
 
+## [v0.10.7](https://github.com/ifunny-co/ifunny-api-types/compare/v0.10.6...v0.10.7) - 2022-11-26
+
+
+
+
+### Documentation
+
+*  Add AppSettings and AppPrivacy @makeshiftartist ([`404f045`](https://github.com/ifunny-co/ifunny-api-types/commit/404f045e458f8a289c70adb78edae6019b68870f))
+
+
 ## [v0.10.6](https://github.com/ifunny-co/ifunny-api-types/compare/v0.10.5...v0.10.6) - 2022-11-26
 
 ### Features
