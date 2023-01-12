@@ -58,5 +58,6 @@ export enum IFUNNY_ERRORS {
 	UNKNOWN_ERROR = "unknown_error",
 	UNKNOWN_SOURCE = "unknown_source",
 	VIDEO_IS_INVALID = "video_is_invalid",
+	WRONG_PARAMS = "wrong_params",
 	YOU_ARE_BLOCKED = "you_are_blocked",
 }
