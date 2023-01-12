@@ -2,6 +2,16 @@
 > All notable changes to this project will be documented in this file.
 > This Changelog adheres to the [Semantic Versioning]("https://semver.org/")
 
+## [v0.10.9](https://github.com/ifunny-co/ifunny-api-types/compare/v0.10.8...v0.10.9) - 2023-01-12
+
+### Features
+
+*  Add wrong_params error @makeshiftartist ([`d447740`](https://github.com/ifunny-co/ifunny-api-types/commit/d447740a48fac8d88adbdf4d989f6bf8297f9abd))
+
+
+
+
+
 ## [v0.10.8](https://github.com/ifunny-co/ifunny-api-types/compare/v0.10.7...v0.10.8) - 2022-11-26
 
 
