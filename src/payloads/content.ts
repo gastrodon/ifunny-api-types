@@ -33,6 +33,10 @@ export interface APIContentBase {
 	 */
 	url: string;
 	/**
+	 * Seems to be the same as {@link url APIContentBase#url}
+	 */
+	share_url: string;
+	/**
 	 * If the Content uses the old watermark or the new one
 	 */
 	old_watermark: boolean;
@@ -97,7 +101,7 @@ export interface APIContentBase {
 	/**
 	 * Background color of the Content.
 	 */
-	bg_color: HexCode;
+	bg_color?: HexCode;
 	/**
 	 * The {@link APIContentThumbnail thumbnail} of the Content
 	 */
@@ -105,7 +109,7 @@ export interface APIContentBase {
 	/**
 	 * The Content's {@link APIContentCopyright copyright} data
 	 */
-	copyright: APIContentCopyright;
+	copyright?: APIContentCopyright;
 	/**
 	 * The {@link APIContentNums numbers} on the Content
 	 */
