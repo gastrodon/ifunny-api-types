@@ -549,7 +549,7 @@ export interface APICoubContentData {
 	/**
 	 * Original Coub source
 	 */
-	traceback_url: string;
+	trackback_url: string;
 	/**
 	 * Length in seconds
 	 */
