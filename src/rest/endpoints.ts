@@ -153,8 +153,10 @@ export class Endpoints {
 
 	/**
 	 * @param contentId Id of the content
+	 * @param commentId Id of the comment if applicable
 	 * @example
 	 * "/content/:contentId/comments"
+	 * "/content/:contentId/comments/:commentId"
 	 */
 	static comments(contentId: string, commentId?: string): string {
 		return this.content(contentId) + "/comments" + (commentId ? `/${commentId}` : "");
@@ -167,7 +169,7 @@ export class Endpoints {
 	 * "/content/:contentId/comments/:commentId/replies"
 	 */
 	static replies(contentId: string, commentId: string): string {
-		return this.comments(contentId) + `/${commentId}/replies`;
+		return this.comments(contentId, commentId) + "/replies";
 	}
 
 	/**
@@ -204,6 +206,3 @@ export class Endpoints {
 		return `/users/${userId}/bans` + (banId ? `/${banId}` : "");
 	}
 }
-
-console.log(Endpoints.comments("content_id"));
-console.log(Endpoints.comments("content_id", "comment_id"));
