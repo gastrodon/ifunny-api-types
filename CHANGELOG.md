@@ -2,7 +2,21 @@
 > All notable changes to this project will be documented in this file.
 > This Changelog adheres to the [Semantic Versioning]("https://semver.org/")
 
-## [v0.10.12](https://github.com/makeshiftartist/ifunny-api-types/compare/v0.10.11...v0.10.12) - 2023-01-16
+## [v1.0.0](https://github.com/makeshiftartist/ifunny-api-types/compare/v0.10.12...v1.0.0) - 2023-01-16
+
+### Features
+
+*  Added CommDeleteReasons and fixed APIComment @makeshiftartist ([`0e5b6f4`](https://github.com/makeshiftartist/ifunny-api-types/commit/0e5b6f4b43df9474a5cb5b4a2e40d5415a9024bc))
+*  Added EpocMs @makeshiftartist ([`5c657eb`](https://github.com/makeshiftartist/ifunny-api-types/commit/5c657ebaa11c2c471d73ca3ee0f6efc7b4c2963c))
+
+
+
+### Documentation
+
+*  Fix docs for original_nick @makeshiftartist ([`49d014e`](https://github.com/makeshiftartist/ifunny-api-types/commit/49d014e957ef1f4c447181b78e51921bdbfc37e3))
+
+
+## [v0.10.12](https://github.com/makeshiftartist/ifunny-api-types/compare/v0.10.11...v0.10.12) - 2023-01-15
 
 
 ### Fixes
