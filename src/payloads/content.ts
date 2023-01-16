@@ -34,8 +34,9 @@ export interface APIContentBase {
 	url: string;
 	/**
 	 * Seems to be the same as {@link url APIContentBase#url}
+	 * ? Not always present on gifs and gif captions
 	 */
-	share_url: string;
+	share_url?: string;
 	/**
 	 * If the Content uses the old watermark or the new one
 	 */
@@ -57,7 +58,8 @@ export interface APIContentBase {
 	 * `Gif memes ${content.id} by ${content.creator.nick}`
 	 * `Picture memes ${content.id} by ${content.creator.nick}: ${content.num.comments} comments`
 	 */
-	fixed_title: string;
+	fixed_title?: string;
+	description?: string;
 	/**
 	 * Array of tags on the Content
 	 */
@@ -67,11 +69,11 @@ export interface APIContentBase {
 	 */
 	state: APIContentState;
 	/**
-	 * {@link EpochSec Timestamp} of when the Content was created in seconds
+	 * EpochSec of when the Content was created (or repubbed if a repub) in seconds
 	 */
 	date_create: EpochSec;
 	/**
-	 * {@link EpochSec Timestamp} of when the Content was published in seconds
+	 * EpochSec of when the Content was published in seconds
 	 */
 	publish_at: EpochSec;
 	/**
@@ -128,8 +130,17 @@ export interface APIContentBase {
 	issue_at?: EpochSec;
 	/**
 	 * Url of the original source
+	 * ? Only seen on Coubs
 	 */
 	traceback_url?: string;
+	/**
+	 * ? Decompiled, not observed
+	 */
+	engagement_rate?: number;
+	/**
+	 * ? Decompiled, not observed
+	 */
+	engagement_rate_explain?: string;
 	/**
 	 * The Content's visibility
 	 */
@@ -142,6 +153,7 @@ export interface APIContentBase {
 	 * TODO: fast_start description
 	 */
 	fast_start: boolean;
+	subtitles?: APIContentSubtitles[];
 	/**
 	 * The risk level of the Content\
 	 * `1` Default
@@ -160,6 +172,18 @@ export interface APIContentBase {
 	 * Can the Content still be boosted
 	 */
 	can_be_boosted: boolean;
+	/**
+	 * Latitude Coordinate
+	 */
+	lat?: number;
+	/**
+	 * Longitude Coordinate
+	 */
+	lon?: number;
+	/**
+	 * Only seen present on videos and gifs
+	 */
+	has_header?: boolean;
 	/**
 	 * The source of the Content if it's a republish
 	 */
@@ -296,6 +320,11 @@ export enum ContentType {
 	 * TODO: Document what ContentType.DEM is
 	 */
 	DEM = "dem",
+	/**
+	 * Unknown Content type\
+	 * Data key: `special` (unknown due to being observed)
+	 */
+	SPECIAL = "special",
 }
 
 /**
@@ -484,13 +513,19 @@ export interface APIContentThumbnail {
 }
 
 /**
- * Pic Data
+ * Decompiled, not observed
  */
-export interface APIPicContentData {
+export interface APIContentSubtitles {
 	/**
-	 * webp format url of the Content
+	 * ? Possibly Language Code
+	 * @example
+	 * "en-US"
 	 */
-	webp_url: string;
+	lang: string;
+	/**
+	 * ? Must end in .srt or .vtt
+	 */
+	url: string;
 }
 
 // * Specific Content objects
@@ -559,6 +594,17 @@ export interface APIVineContentData {
 }
 
 // ? Pictures
+
+/**
+ * Pic Data
+ */
+export interface APIPicContentData {
+	/**
+	 * webp format url of the Content
+	 */
+	webp_url: string;
+}
+
 export interface APICaptionContentData {
 	/**
 	 * The caption of the Content
@@ -586,6 +632,9 @@ export interface APIGifContentData {
 	 * How many bytes the mp4 version is
 	 */
 	mp4_bytes: number;
+
+	webm_url?: string;
+	webm_bytes: number;
 }
 export type APIGifCaptionContentData = APIGifContentData & APICaptionContentData;
 
@@ -666,7 +715,7 @@ export interface APIAppContent extends APIContentBase {
 
 // ? Special/Unknown
 export interface APIUnknownContent extends APIContentBase {
-	type: ContentType.OLD | ContentType.DEM;
+	type: ContentType.OLD | ContentType.DEM | ContentType.SPECIAL;
 }
 
 /**
