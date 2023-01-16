@@ -1,6 +1,6 @@
 {
 	"name": "@ifunny/ifunny-api-types",
-	"version": "0.10.10",
+	"version": "0.10.11",
 	"description": "iFunny API typings for use in bot library creaion.",
 	"main": "dist/index.js",
 	"types": "types",
