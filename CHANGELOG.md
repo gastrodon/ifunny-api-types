@@ -2,7 +2,17 @@
 > All notable changes to this project will be documented in this file.
 > This Changelog adheres to the [Semantic Versioning]("https://semver.org/")
 
-## [v1.0.0](https://github.com/makeshiftartist/ifunny-api-types/compare/v0.10.12...v1.0.0) - 2023-01-16
+## [v1.0.1](https://github.com/makeshiftartist/ifunny-api-types/compare/v1.0.0...v1.0.1) - 2023-01-16
+
+
+### Fixes
+
+*  Fix typo @makeshiftartist ([`89cd0d7`](https://github.com/makeshiftartist/ifunny-api-types/commit/89cd0d7bb1bc7fe62f9bd8f735f66eabb7ba2f43))
+
+
+
+
+## [v1.0.0](https://github.com/makeshiftartist/ifunny-api-types/compare/v0.10.12...v1.0.0) - 2023-01-15
 
 ### Features
 
