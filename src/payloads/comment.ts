@@ -1,3 +1,4 @@
+import { EpochMs } from "../utils";
 import {
 	APIContent,
 	APIContentCreator,
@@ -11,21 +12,40 @@ import { APIUser, APIUserRating } from "./user";
  */
 export interface APICommentBase {
 	id: string;
+	/**
+	 * Content ID
+	 */
 	cid: string;
-	status: string;
-	date: string;
+	/**
+	 * The state of the Comment
+	 */
+	state?: APICommentState;
+	/**
+	 * Unix timestamp of when it was uploaded in MS
+	 */
+	date: EpochMs;
+	/**
+	 * Text of the comment
+	 * ? Can be empty string
+	 */
 	text: string;
 	is_reply: boolean;
 	num: APICommentNum;
 	is_smiled: boolean;
 	is_unsmiled: boolean;
 	is_edited: boolean;
-	user: APICommentAuthor;
-	content: APIContent;
+	user?: APICommentAuthor;
+	deletion_reason?: string;
+	/**
+	 * Only observed when viewing own comments
+	 */
+	content?: APIContent;
 	attachments: APICommentAttachments;
-	content_thumbs: APIContentThumbnail;
+	content_thumbs?: APIContentThumbnail;
+	/**
+	 * Most recent reply to the comment
+	 */
 	last_reply?: APIReply;
-	state?: APICommentState;
 }
 
 /**
@@ -101,4 +121,31 @@ export interface APIMentionUser {
 	stop_index: number;
 	user_id: APIUser["id"];
 	original_nick: APIUser["original_nick"];
+}
+
+export enum APICommentDeletedReaons {
+	/**
+	 * Unobserved
+	 */
+	SPAM_FILTER = "del_by_spam_filter",
+	/**
+	 * Post itself was deleted
+	 */
+	CONTENT = "del_content",
+	/**
+	 * Content author deleted the comment
+	 */
+	CREATOR = "del_content_creator",
+	/**
+	 * Removed for slurs usually, state observed to be "deleted" however
+	 */
+	ABUSES = "del_for_abuses",
+	/**
+	 * Comment was a reply and the root comment was removed
+	 */
+	ROOT_COMMENT = "del_root_comment",
+	/**
+	 * Unobserved
+	 */
+	VIA_PORTAL = "del_via_portal",
 }
