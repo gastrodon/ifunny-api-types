@@ -45,6 +45,11 @@ export type If<T extends boolean, A, B = null> = T extends true
 export type EpochSec = number;
 
 /**
+ * UNIX Epoch in milliseconds
+ */
+export type EpochMs = number;
+
+/**
  * @example
  * interface Foo {
  * 	bar: 'baz',
