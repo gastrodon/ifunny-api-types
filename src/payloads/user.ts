@@ -158,7 +158,7 @@ export interface APIUserProfile extends APIBasePayload {
 	num: APIUserProfileNums;
 	/**
 	 * Original nick of the user\
-	 * ? Doesn't seem to change
+	 * ? iFunny censors some usernames similar to the comment filter
 	 */
 	original_nick: string;
 	/**
