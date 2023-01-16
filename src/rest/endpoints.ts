@@ -156,8 +156,8 @@ export class Endpoints {
 	 * @example
 	 * "/content/:contentId/comments"
 	 */
-	static comments(contentId: string): string {
-		return this.content(contentId) + "/comments";
+	static comments(contentId: string, commentId?: string): string {
+		return this.content(contentId) + "/comments" + (commentId ? `/${commentId}` : "");
 	}
 
 	/**
@@ -204,3 +204,6 @@ export class Endpoints {
 		return `/users/${userId}/bans` + (banId ? `/${banId}` : "");
 	}
 }
+
+console.log(Endpoints.comments("content_id"));
+console.log(Endpoints.comments("content_id", "comment_id"));
