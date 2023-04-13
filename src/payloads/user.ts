@@ -74,7 +74,9 @@ export interface APIUserProfile extends APIBasePayload {
 	 */
 	block_type?: APIUserBlockType;
 	/**
-	 * User's cover image background color {@link HexCode}
+	 * User's cover image background color
+	 * @example
+	 * '55ff00'
 	 */
 	cover_bg_color?: HexCode;
 	/**
@@ -148,8 +150,9 @@ export interface APIUserProfile extends APIBasePayload {
 	 */
 	nick: string;
 	/**
-	 * User's nick color\
-	 * ? Default: 55FF00
+	 * User's nick color (Default: 55FF00)
+	 * @example
+	 * '55ff00'
 	 */
 	nick_color?: APINickColor;
 	/**
@@ -416,7 +419,9 @@ export type APIMemeRank = `${RANK}`;
 
 export interface APIProfilePhoto {
 	/**
-	 * Profile Photo background color {@link HexCode}
+	 * Profile Photo background color
+	 * @example
+	 * '55ff00'
 	 */
 	bg_color: HexCode;
 	/**
@@ -492,9 +497,10 @@ export interface APIUserRatingLevel {
 	points: number;
 }
 
-// TODO: Find all nick colors.
 /**
  * Known nick colors
+ * @example
+ * NICK_COLORS.BRIGHT_GREEN == '55ff00'
  */
 export enum NICK_COLOR {
 	BRIGHT_GREEN = "55FF00",
@@ -508,8 +514,9 @@ export enum NICK_COLOR {
 }
 
 /**
- * A user's nick color\
- * ? Nick colors are hex codes but these are the currently documented ones
+ * A user's nick color
+ * @example
+ * '55ff00'
  */
 export type APINickColor = `${NICK_COLOR}`;
 

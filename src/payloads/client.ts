@@ -100,10 +100,12 @@ export enum API_SEX {
 
 /**
  * Possible sex types for the Client
+ * @alias APIClientUserGender
  */
 export type APIClientUserSex = `${API_SEX}`;
 
 /**
- * Alias for {@link APIClientUserSex}
+ * Possible genders for the Client
+ * @alias APIClientUserSex
  */
 export type APIClientUserGender = APIClientUserSex;

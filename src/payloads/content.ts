@@ -102,6 +102,8 @@ export interface APIContentBase {
 	is_pinned: boolean;
 	/**
 	 * Background color of the Content.
+	 * @example
+	 * '55ff00'
 	 */
 	bg_color?: HexCode;
 	/**
