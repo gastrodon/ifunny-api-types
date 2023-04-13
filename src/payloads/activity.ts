@@ -97,4 +97,4 @@ export enum NEWS_TYPES {
 /**
  * All possible activity types
  */
-type APINewsType = `${NEWS_TYPES}`;
+export type APINewsType = `${NEWS_TYPES}`;
