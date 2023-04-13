@@ -5,32 +5,57 @@ import { APIContent } from "./content";
 import { APIUser } from "./user";
 import { EpochSec } from "../utils";
 
-interface Smiles {
+export interface Smiles {
 	smiles: string;
 }
 
+/**
+ * An interface representing a news item from the iFunny API
+ */
 export interface APINews {
+	/** The ID of the ban associated with this news item */
 	banId?: string;
+	/** The type of ban associated with this news item */
 	banType?: APIBanType;
+	/** The message associated with the ban type of this news item */
 	banTypeMessage?: string;
+	/** The comment associated with this news item */
 	comment?: APIComment;
+	/** The content associated with this news item */
 	content?: APIContent;
+	/** The number of active strikes */
 	countActiveStrike?: number;
+	/** The timestamp of when the news item was posted */
 	date: EpochSec;
+	/** The timestamp of when the news item will expire */
 	date_until?: EpochSec;
+	/** The timestamp of when the news item expired */
 	expiredAt?: EpochSec;
+	/** The URL of the image associated with this news item */
 	imageUrl?: string;
+	/** The content mentioned in this news item */
 	mention_content?: APIContent;
+	/** The users mentioned in this news item */
 	mention_users?: APIMentionUser[];
+	/** The type of purchase associated with this news item */
 	purchaseType?: string;
+	/** The reply associated with this news item */
 	reply?: APIReply;
+	/** The number of smiles associated with this news item */
 	smiles?: number;
+	/** The ID of the strike associated with this news item */
 	strikeId?: string;
+	/** The text associated with this news item */
 	text?: string;
+	/** The title of this news item */
 	title?: string;
+	/** The type of this news item */
 	type: APINewsType;
+	/** The URL associated with this news item */
 	url?: string;
+	/** The user associated with this news item */
 	user?: APINewsUser;
+	/** The username associated with this news item */
 	username?: string;
 }
 
