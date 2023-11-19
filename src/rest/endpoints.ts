@@ -11,6 +11,7 @@ export class Endpoints {
 	static readonly timelines = "/timelines";
 	static readonly token = "/oauth2/token";
 	static readonly myUser = "/users/my";
+	static readonly myComments = "/users/my/comments";
 	static readonly myComments = this.myUser + "/comments";
 	static readonly chatInvites = this.myUser + "/chat_invitations";
 	static readonly mySmiles = this.myUser + "/content_smiles";
