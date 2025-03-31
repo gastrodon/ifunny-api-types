@@ -1,5 +1,11 @@
 ## Changelog
 
+### [Unreleased](https://github.com/MakeShiftArtist/ifunny-api-types/compare/v1.1.1...HEAD) - 
+
+#### Fixes
+
+- fix(deps): :pushpin: Update package-lock.json @MakeShiftArtist [`8c4ec50`](https://github.com/MakeShiftArtist/ifunny-api-types/commit/8c4ec50dd68400d965c5235559e1929ec7b550c5)
+
 ### [v1.1.0](https://github.com/MakeShiftArtist/ifunny-api-types/compare/1.0.4...v1.1.0) -  30 March 2025 
 
 #### Chores And Housekeeping
