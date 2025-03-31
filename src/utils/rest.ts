@@ -1,7 +1,7 @@
 /**
  * Returns when the request was a success
  */
-export interface RESTAPISuccessResponse<T extends unknown> extends RESTAPIStatusCode {
+export interface RESTAPISuccessResponse<T> extends RESTAPIStatusCode {
 	/**
 	 * The data returned from the API
 	 */
@@ -11,7 +11,7 @@ export interface RESTAPISuccessResponse<T extends unknown> extends RESTAPIStatus
 /**
  * Common data response
  */
-export interface RESTAPIItems<Item extends unknown> {
+export interface RESTAPIItems<Item> {
 	/**
 	 * Array of items returned from the API
 	 */

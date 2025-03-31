@@ -62,7 +62,7 @@ export type EpochMs = number;
  * type BarOrSpam = ValueOf<Foo, 'bar'|'spam'> // Expect 'baz'|'eggs'
  *
  */
-export type ValueOf<T extends unknown, K extends keyof T = keyof T> = T[K];
+export type ValueOf<T, K extends keyof T = keyof T> = T[K];
 
 /**
  * Like {@link Pick}, but each key is made required

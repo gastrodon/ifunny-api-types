@@ -663,7 +663,7 @@ export type APIContentData =
 	| UnknownContentData;
 
 // ? Special/Unknown
-export interface UnknownContentData extends JSON {}
+export type UnknownContentData = JSON
 
 // ? Videos
 export interface APICoubContent extends APIContentBase {
