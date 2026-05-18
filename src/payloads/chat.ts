@@ -12,6 +12,15 @@ export const ChannelType = {
 export type ChannelType = (typeof ChannelType)[keyof typeof ChannelType];
 
 /**
+ * Channel role constants matching the WAMP wire format
+ */
+export const ChannelRole = {
+	DM: 0,
+	Normie: 2,
+} as const;
+export type ChannelRole = (typeof ChannelRole)[keyof typeof ChannelRole];
+
+/**
  * Channel join state constants matching the WAMP wire format
  */
 export const JoinState = {
@@ -46,14 +55,13 @@ export type EventType = (typeof EventType)[keyof typeof EventType];
  * Represents a chat channel
  */
 export interface APIChatChannel extends APIBasePayload {
-	id: string;
 	name: string;
 	title: string;
 	members_online: number;
 	members_total: number;
 	type: ChannelType;
 	join_state: JoinState;
-	role?: number;
+	role?: ChannelRole;
 	touch_dt: number;
 	user: {
 		id: string;
@@ -68,10 +76,9 @@ export interface APIChatChannel extends APIBasePayload {
  * Note: the user ID field is keyed as "user" (not "id") in message payloads.
  */
 export interface APIChatMessage extends APIBasePayload {
-	id: string;
 	text: string;
 	type: MessageType;
-	status?: number;
+	status?: number; // TODO investigate what this is / enum values
 	pub_at: number;
 	user: {
 		user: string;
