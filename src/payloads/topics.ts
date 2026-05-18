@@ -28,20 +28,20 @@ export function eventsIn(channelName: string): Topic {
 }
 
 /**
- * Returns the WAMP topic for direct message channel events
- */
-export function dmChannelTopic(channelName: string): Topic {
-	return {
-		topic: `${CHAT_NAMESPACE}.chat.${channelName}`,
-	};
-}
-
-/**
  * Returns the WAMP topic for user's joined chats
  */
 export function userJoinedChats(userId: string): Topic {
 	return {
 		topic: `${CHAT_NAMESPACE}.user.${userId}.chats`,
+	};
+}
+
+/**
+ * Returns the WAMP topic for user's incoming chat invitations
+ */
+export function userInvites(userId: string): Topic {
+	return {
+		topic: `${CHAT_NAMESPACE}.user.${userId}.invites`,
 	};
 }
 
